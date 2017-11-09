@@ -1,0 +1,14 @@
+{
+  "postgres":{
+    "host": "192.168.27.88",
+    "dbname_postgres": "postgres",
+    "user_postgres": "testpostgres",
+    "password_postgres": "postgres"
+  },
+  "cfs":{
+    "host": "192.168.27.88",
+    "dbname_postgres": "test_cfs",
+    "user_postgres": "testpostgres",
+    "password_postgres": "postgres"
+  }
+}
