@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import pytest
-import os.path
 import json
+import os.path
+
+import pytest
+
 from fixture.application import Application
-
-
 
 fixture = None
 target = None
@@ -21,14 +21,14 @@ def load_config(file):
 
 @pytest.fixture(scope = 'session')
 def app(request):
-    global fixture
+    #global fixture
 
-    if fixture is None :
-        fixture = Application()
-
+    #if fixture is None :
+    fixture = Application()
 
     request.addfinalizer(fixture.destroy)
     return fixture
+
 
 
 def pytest_addoption(parser):
