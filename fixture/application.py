@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 __author__ = 'vden'
 
-from fixture.second.connection_kvm import ConnectionKvm
+from fixture.first.clone_an_image import Clone_an_image_helper
 
 
-class Application:
+class Application_first:
 
     def __init__(self):
-        self.conn_kvm = ConnectionKvm(self)
+        self.clone = Clone_an_image_helper()
 
 
 
