@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import json
 import os.path
-
 import pytest
+
+from model.pgl_kvm import Pgl_kvm
 
 from fixture.application import Application
 
@@ -21,10 +22,17 @@ def load_config(file):
 
 @pytest.fixture(scope = 'session')
 def app(request):
-    #global fixture
+    global fixture
+    global target
 
-    #if fixture is None :
-    fixture = Application()
+    if target is None:
+        pgl_kvm_config = load_config(request.config.getoption("--target"))["pgl_kvm"]
+        pgl_kvm = Pgl_kvm(name_sourse_image=pgl_kvm_config["name_sourse_image"],
+                          prefix=pgl_kvm_config["prefix"],
+                          number_test_set=pgl_kvm_config["number_test_set"])
+
+    if fixture is None :
+        fixture = Application(pgl_kvm)
 
     request.addfinalizer(fixture.destroy)
     return fixture

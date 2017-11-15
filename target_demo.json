@@ -1,9 +1,8 @@
 {
-  "postgres":{
-    "host": "192.168.27.88",
-    "dbname_postgres": "postgres",
-    "user_postgres": "testpostgres",
-    "password_postgres": "postgres"
+  "pgl_kvm":{
+    "name_sourse_image": "ubuntu1604-64-serv",
+    "prefix": "-tst",
+    "number_test_set": "001",
   },
   "cfs":{
     "host": "192.168.27.88",
