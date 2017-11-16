@@ -7,25 +7,21 @@ from datetime import datetime
 
 from model.lip_domain import Lip_domain
 
-conn_open_kvm = None
-
 
 class Lib_helper:
     def __init__(self, app):
         self.app = app
 
+
     def connection_open(app):
 
-        global conn_open_kvm
-
-        if conn_open_kvm is None:
-            try:
-                conn_open_kvm = libvirt.open('qemu:///system')
-                print("conn_open_kvm")
-            except:
-                if conn_open_kvm == None:
-                    print('Failed to open connection to qemu:///system')
-                    exit(1)
+        try:
+            conn_open_kvm = libvirt.open('qemu:///system')
+            #print("conn_open_kvm")
+        except:
+            if conn_open_kvm == None:
+                print('Failed to open connection to qemu:///system')
+                exit(1)
 
         return conn_open_kvm
 
@@ -52,6 +48,7 @@ class Lib_helper:
 
         return lib_domain
 
+
     def domain_shutdown_name(app, conn = None, lib_name=None):
         comm = conn.lookupByName(lib_name)
 
@@ -66,6 +63,7 @@ class Lib_helper:
 
         print("domain_shutdown_name " + lib_name)
 
+
     def create_clone_name(app, pgl_kvm, conn):
 
         check_name = pgl_kvm.name_sourse_image
@@ -79,11 +77,17 @@ class Lib_helper:
             check_name=app.domain_check_for_availability(check_domain=clone_mame, conn=conn)
             number_clone = number_clone +1
 
-
-
-
         print('original_name=', pgl_kvm.name_sourse_image, clone_mame)
         return clone_mame
+
+
+    def start_image(app, name_image, conn):
+
+        comm = conn.lookupByName(name_image)
+
+        comm.create()
+
+
 
 
 
