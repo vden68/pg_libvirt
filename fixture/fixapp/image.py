@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'vden'
 import os
+#import libvirt
 from fixture.fixlib.lib import Lib_helper
 
 class Image_helper:
@@ -42,11 +43,12 @@ class Image_helper:
             print('Cannot find image %s to be clone.' % name_image)
             exit(0)
 
-        # if the domain is not enabled we start work domain
-        if lib_domain.ID() == -1:
-            self.flib.start_image(name_image=name_image, conn=conn_open_kvm)
-        else:
-            print("\n start_image", name_image)
+        lib_domain= self.flib.start_image(lib_domain=lib_domain, conn=conn_open_kvm)
 
         conn_open_kvm.close()
+
+        return lib_domain
+
+
+
 

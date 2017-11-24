@@ -81,11 +81,34 @@ class Lib_helper:
         return clone_mame
 
 
-    def start_image(app, name_image, conn):
+    def start_image(app, lib_domain, conn):
 
-        comm = conn.lookupByName(name_image)
+        dom = conn.lookupByName(lib_domain.name())
 
-        comm.create()
+        # if the domain is not enabled we start work domain
+        if lib_domain.ID() == -1:
+            dom.create()
+        else:
+            print("\n start_image", lib_domain)
+
+        ifaces= None
+        pg_time= 0
+        while ifaces is None:
+            try:
+                ifaces= dom.interfaceAddresses(libvirt.VIR_IP_ADDR_TYPE_IPV4)['vnet0']['addrs']
+                for ifa in ifaces:
+                    lib_domain.IP = ifa['addr']
+            except:
+                ifaces = None
+
+            pg_time= pg_time+1
+            time.sleep(1)
+            if pg_time>200:
+                print('Failed not received IP address ')
+                exit(1)
+
+        return lib_domain
+
 
 
 
