@@ -89,7 +89,7 @@ class Lib_helper:
         if lib_domain.ID() == -1:
             dom.create()
         else:
-            print("\n start_image", lib_domain)
+            print("\n start_image", lib_domain.name(), lib_domain.UUIDString(), lib_domain.ID(), lib_domain.IP)
 
         ifaces= None
         pg_time= 0
@@ -98,6 +98,7 @@ class Lib_helper:
                 ifaces= dom.interfaceAddresses(libvirt.VIR_IP_ADDR_TYPE_IPV4)['vnet0']['addrs']
                 for ifa in ifaces:
                     lib_domain.IP = ifa['addr']
+                    lib_domain.ID = dom.ID
             except:
                 ifaces = None
 

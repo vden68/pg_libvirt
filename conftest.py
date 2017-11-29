@@ -4,6 +4,7 @@ import os.path
 import pytest
 
 from model.pgl_kvm import Pgl_kvm
+from model.pgl_ssh import Pgl_ssh
 
 from fixture.application import Application
 
@@ -26,13 +27,17 @@ def app(request):
     global target
 
     if target is None:
-        pgl_kvm_config = load_config(request.config.getoption("--target"))["pgl_kvm"]
-        pgl_kvm = Pgl_kvm(name_sourse_image=pgl_kvm_config["name_sourse_image"],
+        pgl_kvm_config= load_config(request.config.getoption("--target"))["pgl_kvm"]
+        pgl_kvm= Pgl_kvm(name_sourse_image=pgl_kvm_config["name_sourse_image"],
                           prefix=pgl_kvm_config["prefix"],
                           number_test_set=pgl_kvm_config["number_test_set"])
 
+        pgl_ssh_config= load_config(request.config.getoption("--target"))["pgl_ssh"]
+        pgl_ssh= Pgl_ssh(ip=pgl_ssh_config["ip"], username=pgl_ssh_config["username"],
+                         password=pgl_ssh_config["password"], password_root=pgl_ssh_config["password_root"])
+
     if fixture is None :
-        fixture = Application(pgl_kvm)
+        fixture = Application(pgl_kvm, pgl_ssh)
 
     request.addfinalizer(fixture.destroy)
     return fixture
