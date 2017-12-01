@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 __author__ = 'vden'
 
+import time
+
 from paramiko import client
 
 
@@ -20,6 +22,7 @@ class Sshh_helper:
         stdin, stdout, stderr = self.client.exec_command(command)
         for line in stdout or stderr:
             print('..' + line.strip('\n'))
+            #time.sleep(1)
 
 
     def do_close(self):

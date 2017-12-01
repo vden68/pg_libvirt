@@ -1,13 +1,14 @@
 {
   "pgl_kvm":{
-    "name_sourse_image": "ubuntu1604-64-serv",
-    "prefix": "-tst",
+    "name_sourse_image": "linux-ubuntu-16.04-x86_64",
+    "prefix": "tst",
     "number_test_set": "001",
+    "path_meta_json":"/PostgresPro/Standard/pgpro-9.6/meta.json"
   },
-  "cfs":{
-    "host": "192.168.27.88",
-    "dbname_postgres": "test_cfs",
-    "user_postgres": "testpostgres",
-    "password_postgres": "postgres"
+  "pgl_ssh":{
+    "ip": "None",
+    "username": "test",
+    "password": "TestPass1",
+    "password_root": "TestRoot1"
   }
 }
