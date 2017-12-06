@@ -40,8 +40,8 @@ class Lib_helper:
                 if domain.name() == check_domain:
                     lib_domain = Lip_domain(name=domain.name, UUIDString=domain.UUIDString, ID=domain.ID)
                     return lib_domain
-                #else:
-                #    print(domain.name(), '=', check_domain)
+                else:
+                    print(domain.name(), '=', check_domain)
 
         else:
             print('  None')
