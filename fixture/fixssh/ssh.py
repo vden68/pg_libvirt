@@ -15,7 +15,23 @@ class Sshh_helper:
 
 
     def do_connect(self, args):
-        self.client.connect(args.ip, username=args.username, password=args.password,  look_for_keys=False)
+
+        ifaces = None
+        pg_time = 0
+        while ifaces is None:
+            try:
+                self.client.connect(args.ip, username=args.username, password=args.password, look_for_keys=False)
+                ifaces = 1
+            except:
+                ifaces = None
+
+            pg_time = pg_time + 1
+            time.sleep(1)
+            if pg_time > 200:
+                print('Failed not received SSH connect ')
+                exit(1)
+
+        #self.client.connect(args.ip, username=args.username, password=args.password,  look_for_keys=False)
 
 
     def do_run(self, command):

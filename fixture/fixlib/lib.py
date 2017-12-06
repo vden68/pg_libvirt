@@ -95,11 +95,24 @@ class Lib_helper:
         pg_time= 0
         while ifaces is None:
             try:
-                ifaces= dom.interfaceAddresses(libvirt.VIR_IP_ADDR_TYPE_IPV4)['vnet0']['addrs']
-                for ifa in ifaces:
-                    lib_domain.IP = ifa['addr']
-                    lib_domain.ID = dom.ID
+                ifaces= dom.interfaceAddresses(libvirt.VIR_IP_ADDR_TYPE_IPV4).values() # ['addrs'] #['vnet0']
+                print('ifaces=', ifaces)
+
+                for addrs in ifaces:
+                    print('addrs=', addrs['addrs'])
+                    print()
+
+                    for ifa in addrs['addrs']:
+                        print('ifa=', ifa['addr'])
+                        lib_domain.IP = ifa['addr']
+                        lib_domain.ID = dom.ID
+                        print(lib_domain.IP)
+
+
             except:
+                ifaces = None
+
+            if lib_domain.IP is None:
                 ifaces = None
 
             pg_time= pg_time+1

@@ -31,12 +31,12 @@ class Ssh_helper:
         print('split_name=', split_name)
 
         steps_system= repo[split_name[0]][split_name[1]][split_name[2]][split_name[3]]
-        #print('steps_system=', steps_system)
+        print('steps_system=', steps_system)
 
 
         for steps_f in steps_system:
             steps = steps_f['install']
-            #print('steps=', steps)
+            print('steps=', steps)
             for step in steps:
                 print('\nstep=', step)
                 self.sshh.do_run(command="sudo sh -c '"+step+"'")

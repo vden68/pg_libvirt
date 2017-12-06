@@ -1,0 +1,531 @@
+{
+   "windows" : {
+      "sdk71" : {
+         "x86_64" : [
+            {
+               "product" : "PostgresPro Standard",
+               "version" : "10.1.1",
+               "package" : "PostgresPro_10.1.1_X64bit_Setup.exe",
+               "install" : "http://repo.postgrespro.ru/pgpro-10-beta/win/PostgresPro_10.1.1_X64bit_Setup.exe"
+            }
+         ],
+         "x86" : [
+            {
+               "install" : "http://repo.postgrespro.ru/pgpro-10-beta/win/PostgresPro_10.1.1_X86bit_Setup.exe",
+               "package" : "PostgresPro_10.1.1_X86bit_Setup.exe",
+               "version" : "10.1.1",
+               "product" : "PostgresPro Standard"
+            }
+         ]
+      }
+   },
+   "linux" : {
+      "altlinux" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server-10.1.1-alt1.x86_64.rpm",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "8" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server-10.1.1-alt1.x86_64.rpm",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         }
+      },
+      "msvsphere" : {
+         "6.3" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/msvsphere/6.3Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el6.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el6.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "debian" : {
+         "8" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/debian/ jessie main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server_10.1.1-1.jessie.pro_amd64.deb"
+               }
+            ]
+         },
+         "9" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/debian/ stretch main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server_10.1.1-1.stretch.pro_amd64.deb",
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server_10.1.1-1.wheezy.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/debian/ wheezy main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         }
+      },
+      "goslinux" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el6.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el6.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "astra-smolensk" : {
+         "1.5" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server_10.1.1-1.smolensk.pro_amd64.deb",
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         }
+      },
+      "oraclelinux" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/oraclelinux/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el6.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el6.x86_64.rpm",
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard",
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el7.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/oraclelinux/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el7.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ]
+               }
+            ]
+         }
+      },
+      "rhel" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/rhel/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el6.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el7.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el7.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "rosa-sx" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server-10.1.1-1.res7.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/rosa-sx/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.res7.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-std-10-server-10.1.1-1.res6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.res6.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ]
+               }
+            ]
+         }
+      },
+      "rosa-el" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.res6.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         }
+      },
+      "centos" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el7.centos.x86_64",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el7.centos.x86_64.rpm"
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server-10.1.1-1.el6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgpro-10-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-std-10-server-10.1.1-1.el6.x86_64" ,
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         }
+      },
+      "ubuntu" : {
+         "17.04" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ zesty main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server_10.1.1-1.zesty.pro_amd64.deb"
+               }
+            ]
+         },
+         "14.04" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-std-10-server_10.1.1-1.trusty.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ trusty main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ]
+               }
+            ]
+         },
+         "17.10" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard",
+                  "package" : "postgrespro-std-10-server_10.1.1-1.artful.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ artful main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ]
+               }
+            ]
+         },
+         "16.10" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-std-10-server_10.1.1-1.yakkety.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ yakkety main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "16.04" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "product" : "PostgresPro Standard",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro*",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server_10.1.1-1.xenial.pro_amd64.deb"
+               }
+            ]
+         }
+      },
+      "altlinux-spt" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "version" : "10.1.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-std-10-server",
+                     "/opt/pgpro/std-10/bin/pg-setup initdb",
+                     "service postgrespro-std-10 start"
+                  ],
+                  "package" : "postgrespro-std-10-server-10.1.1-alt1.x86_64.rpm"
+               }
+            ]
+         }
+      }
+   }
+}
+
