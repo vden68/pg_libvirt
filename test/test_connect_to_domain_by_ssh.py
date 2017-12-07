@@ -12,7 +12,7 @@ def test_connect_to_domain_by_ssh(app):
     #clone_name = 'centos6-pg96'
     #clone_name='linux-ubuntu-16.04-x86_64'
 
-    with pytest.allure.step('start domen clone_name={name_image}'):
+    with pytest.allure.step('some operation for clone_name=%s' % clone_name):
         st_domain= app.img.start_image(name_image= clone_name)
     print("\n st_domain= ", st_domain)
     app.pgl_ssh.ip= st_domain.IP
