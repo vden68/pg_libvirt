@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 __author__ = 'vden'
 
+import allure
+
+@allure.step('проверка')
 def test_connect_to_domain_by_ssh(app):
 
-    clone_name = app.img.clone_an_image()
+    with allure.step('Проверка шага clone_name={clone_name}'):
+        clone_name = app.img.clone_an_image()
     #clone_name = 'ubuntu1604-64-serv-tst-001-1116-0'
     #clone_name = 'centos6-pg96'
     #clone_name='linux-ubuntu-16.04-x86_64'
