@@ -15,7 +15,7 @@ class Image_helper:
         with pytest.allure.step('Подключаемся к KVM'):
             conn_open_kvm = self.flib.connection_open()
 
-        with pytest.allure.step('Проверяем на наличие образа %s' % self.app.pgl_kvm.name_sourse_image):
+        with pytest.allure.step('Проверяем на наличие образ %s' % self.app.pgl_kvm.name_sourse_image):
             lib_domain = self.flib.domain_check_for_availability(check_domain=self.app.pgl_kvm.name_sourse_image,
                                                                  conn=conn_open_kvm)
         if lib_domain is None:
@@ -26,10 +26,12 @@ class Image_helper:
         if lib_domain.ID() != -1:
             self.flib.domain_shutdown_name(conn=conn_open_kvm, lib_name=lib_domain.name())
 
-        clone_name = self.flib.create_clone_name(pgl_kvm=self.app.pgl_kvm, conn=conn_open_kvm)
+        with pytest.allure.step('Формируем название новой виртуальной машины'):
+            clone_name = self.flib.create_clone_name(pgl_kvm=self.app.pgl_kvm, conn=conn_open_kvm)
 
-
-        os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone' % (self.app.pgl_kvm.name_sourse_image, clone_name))
+        with pytest.allure.step('Клонируем образ %s в новы клон %s' %(self.app.pgl_kvm.name_sourse_image, clone_name)):
+            os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone'\
+                      % (self.app.pgl_kvm.name_sourse_image, clone_name))
 
         conn_open_kvm.close()
 
