@@ -40,8 +40,8 @@ class Lib_helper:
                 if domain.name() == check_domain:
                     lib_domain = Lip_domain(name=domain.name, UUIDString=domain.UUIDString, ID=domain.ID)
                     return lib_domain
-                else:
-                    print(domain.name(), '=', check_domain)
+                #else:
+                    #print(domain.name(), '=', check_domain)
 
         else:
             print('  None')
@@ -96,14 +96,14 @@ class Lib_helper:
         while ifaces is None:
             try:
                 ifaces= dom.interfaceAddresses(libvirt.VIR_IP_ADDR_TYPE_IPV4).values() # ['addrs'] #['vnet0']
-                print('ifaces=', ifaces)
+                #print('ifaces=', ifaces)
 
                 for addrs in ifaces:
                     print('addrs=', addrs['addrs'])
                     print()
 
                     for ifa in addrs['addrs']:
-                        print('ifa=', ifa['addr'])
+                        #print('ifa=', ifa['addr'])
                         lib_domain.IP = ifa['addr']
                         lib_domain.ID = dom.ID
                         print(lib_domain.IP)
