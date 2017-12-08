@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'vden'
 import os
-#import libvirt
+import pytest
 from fixture.fixlib.lib import Lib_helper
 
 class Image_helper:
@@ -11,10 +11,13 @@ class Image_helper:
 
 
     def clone_an_image(self):
-        conn_open_kvm = self.flib.connection_open()
 
-        lib_domain = self.flib.domain_check_for_availability(check_domain=self.app.pgl_kvm.name_sourse_image,
-                                                             conn=conn_open_kvm)
+        with pytest.allure.step('Подключаемся к KVM'):
+            conn_open_kvm = self.flib.connection_open()
+
+        with pytest.allure.step('Проверяем на наличие образа %s' % self.app.pgl_kvm.name_sourse_image):
+            lib_domain = self.flib.domain_check_for_availability(check_domain=self.app.pgl_kvm.name_sourse_image,
+                                                                 conn=conn_open_kvm)
         if lib_domain is None:
             print('Cannot find image %s to be clone.' %self.app.pgl_kvm.name_sourse_image)
             exit(0)
