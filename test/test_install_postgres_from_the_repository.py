@@ -4,7 +4,7 @@ __author__ = 'vden'
 import pytest
 
 @pytest.allure.step('проверка')
-def test_connect_to_domain_by_ssh(app):
+def test_install_postgres_from_the_repository(app):
 
     with pytest.allure.step('Проверка шага clone_name={clone_name}'):
         clone_name = app.img.clone_an_image()
