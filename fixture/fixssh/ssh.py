@@ -2,8 +2,8 @@
 __author__ = 'vden'
 
 import time
-from eventlet.timeout import Timeout
-import eventlet
+#from eventlet.timeout import Timeout
+#import eventlet
 
 from paramiko import client
 
