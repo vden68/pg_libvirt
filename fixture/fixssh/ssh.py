@@ -2,6 +2,8 @@
 __author__ = 'vden'
 
 import time
+from eventlet.timeout import Timeout
+import eventlet
 
 from paramiko import client
 
@@ -35,10 +37,11 @@ class Sshh_helper:
 
 
     def do_run(self, command):
+
         stdin, stdout, stderr = self.client.exec_command(command)
         for line in stdout or stderr:
             print('..' + line.strip('\n'))
-            #time.sleep(1)
+        #time.sleep(1)
 
 
     def do_close(self):
