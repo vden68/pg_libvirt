@@ -43,6 +43,10 @@ class Ssh_helper:
                     print('\nstep=', step)
                     with pytest.allure.step('step= sudo sh -c %s' % step):
                         self.sshh.do_run(command="sudo sh -c '"+step+"'")
+
+        with pytest.allure.step('Выключаем ВМ'):
+            self.sshh.do_run(command="sudo shutdown -h now")
+
                 
 
 
