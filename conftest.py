@@ -20,6 +20,23 @@ def load_config(file):
             target = json.load(f)
     return target
 
+def reading_parameters_from_jenkins(jen_param=None):
+
+    try:
+        name_sourse_image_j= os.environ["name_sourse_image"]
+        prefix_J= os.environ["prefix"]
+        number_test_set_J= os.environ["number_test_set"]
+        path_meta_json_J= os.environ["path_meta_json"]
+
+        jen_param.name_sourse_image= name_sourse_image_j
+        jen_param.prefix= prefix_J
+        jen_param.number_test_set= number_test_set_J
+        jen_param.path_meta_json= path_meta_json_J
+    except:
+        pass
+
+    return jen_param
+
 
 @pytest.fixture(scope = 'session')
 def app(request):
@@ -32,6 +49,8 @@ def app(request):
                          prefix=pgl_kvm_config["prefix"],
                          number_test_set=pgl_kvm_config["number_test_set"],
                          path_meta_json=pgl_kvm_config['path_meta_json'])
+
+        pgl_kvm= reading_parameters_from_jenkins(jen_param=pgl_kvm)
 
         pgl_ssh_config= load_config(request.config.getoption("--target"))["pgl_ssh"]
         pgl_ssh= Pgl_ssh(ip=pgl_ssh_config["ip"], username=pgl_ssh_config["username"],

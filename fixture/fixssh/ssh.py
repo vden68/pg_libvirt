@@ -38,12 +38,13 @@ class Sshh_helper:
 
     def do_run(self, command):
 
-        stdin, stdout, stderr = self.client.exec_command(command)
+        stdin, stdout, stderr = self.client.exec_command(command, timeout=1200)
         for line in stdout or stderr or stdin:
             print('..' + line.strip('\n'))
         #time.sleep(1)
 
 
     def do_close(self):
-        self.client.close()
+        if self.client is not None:
+            self.client.close()
 
