@@ -39,7 +39,7 @@ class Sshh_helper:
     def do_run(self, command):
 
         stdin, stdout, stderr = self.client.exec_command(command)
-        for line in stdout or stderr:
+        for line in stdout or stderr or stdin:
             print('..' + line.strip('\n'))
         #time.sleep(1)
 
