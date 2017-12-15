@@ -32,6 +32,7 @@ def reading_parameters_from_jenkins(jen_param=None):
         jen_param.prefix= prefix_J
         jen_param.number_test_set= number_test_set_J
         jen_param.path_meta_json= path_meta_json_J
+        print('jen_param=', jen_param)
     except:
         pass
 
