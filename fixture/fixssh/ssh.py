@@ -42,8 +42,7 @@ class Sshh_helper:
         stdin, stdout, stderr = self.client.exec_command(command, timeout=1200)
         for line in stdout or stderr or stdin:
             print('..' + line.strip('\n'))
-            list_exec.append(line.strip())
-            list_exec.append('\n')
+            list_exec.append(line.strip('\n'))
 
         return list_exec
         #time.sleep(1)
