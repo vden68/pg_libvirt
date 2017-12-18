@@ -45,7 +45,7 @@ class Ssh_helper:
                     with pytest.allure.step('step= sudo sh -c %s' % step):
                         list_step=self.sshh.do_run(command="sudo sh -c '"+step+"'")
                         for l_step in list_step:
-                            with pytest.allure.step('Вывод консоли %s' % l_step):
+                            with pytest.allure.step('. %s' % l_step):
                                 pass
 
         with pytest.allure.step('Выключаем ВМ'):
