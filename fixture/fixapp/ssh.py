@@ -38,11 +38,14 @@ class Ssh_helper:
         for steps_f in steps_system:
             steps = steps_f['install']
 
+
             with pytest.allure.step('Выполняем install из meta.json' ):
                 for step in steps:
                     print('\nstep=', step)
                     with pytest.allure.step('step= sudo sh -c %s' % step):
-                        self.sshh.do_run(command="sudo sh -c '"+step+"'")
+                        list_step=self.sshh.do_run(command="sudo sh -c '"+step+"'")
+                        with pytest.allure.step('Вывод консоли %s' % list_step):
+                            pass
 
         with pytest.allure.step('Выключаем ВМ'):
             self.sshh.do_run(command="sudo shutdown -t 1 -h")
