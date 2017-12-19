@@ -48,6 +48,34 @@ class Ssh_helper:
                             with pytest.allure.step('. %s' % l_step):
                                 pass
 
+
+
+        for steps_f in steps_system:
+            steps = steps_f['package'][-3:]
+            if steps.count('deb')>-1:
+                with pytest.allure.step('Проверка установленных %s пакетов' % steps):
+                    list_step = self.sshh.do_run(command="dpkg --get-selections | grep postgrespro")
+
+                    l_server= False
+                    l_client= False
+                    l_libs= False
+                    for l_step in list_step:
+                        with pytest.allure.step('. %s' % l_step):
+                            if l_step.count("server")>-1 and l_step.count("install")>-1:
+                                l_server= True
+                                if l_step.count("client")>-1 and l_step.count("install")>-1:
+                                    l_client= True
+                                    if l_step.count("libs") > -1 and l_step.count("install") > -1:
+                                        l_libs = True
+                            print(l_step, l_server, l_client, l_libs)
+                    assert l_server and l_client and l_libs
+
+            elif steps.count('rpm')>-1:
+                print('rpm.....')
+            else:
+                print("Не известный тип пакета %s" % steps)
+            print(steps)
+
         with pytest.allure.step('Выключаем ВМ'):
             self.sshh.do_run(command="sudo shutdown -t 1 -h")
 
