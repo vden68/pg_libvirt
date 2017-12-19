@@ -30,8 +30,10 @@ class Image_helper:
             clone_name = self.flib.create_clone_name(pgl_kvm=self.app.pgl_kvm, conn=conn_open_kvm)
 
         with pytest.allure.step('Клонируем образ %s в новый клон %s' %(self.app.pgl_kvm.name_sourse_image, clone_name)):
-            os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone'\
-                      % (self.app.pgl_kvm.name_sourse_image, clone_name))
+            self.flib.clone_image(clone_name=clone_name, name_image=self.app.pgl_kvm.name_sourse_image, conn=conn_open_kvm)
+
+            #os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone'\
+            #          % (self.app.pgl_kvm.name_sourse_image, clone_name))
 
         conn_open_kvm.close()
 

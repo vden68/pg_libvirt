@@ -3,6 +3,7 @@ __author__ = 'vden'
 
 import libvirt
 import time
+import os
 from datetime import datetime
 
 from model.lip_domain import Lip_domain
@@ -122,6 +123,27 @@ class Lib_helper:
                 exit(1)
 
         return lib_domain
+
+    def clone_image (app, clone_name, name_image, conn):
+
+        num = 1
+        while num<60:
+            os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone' \
+                  % (name_image, clone_name))
+
+            time.sleep(2)
+            check_name = app.domain_check_for_availability(check_domain=clone_name, conn=conn)
+            print('check_name = ', check_name.name())
+            if check_name is not None:
+                break
+            num = num+1
+            time.sleep(10)
+
+
+
+
+
+
 
 
 
