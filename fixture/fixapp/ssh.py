@@ -52,7 +52,8 @@ class Ssh_helper:
 
         for steps_f in steps_system:
             steps = steps_f['package'][-3:]
-            if steps.count('deb')>-1:
+            print(steps.count('deb'))
+            if steps.count('deb')>0:
                 with pytest.allure.step('Проверка установленных %s пакетов' % steps):
                     list_step = self.sshh.do_run(command="dpkg --get-selections | grep postgrespro")
 
@@ -70,7 +71,7 @@ class Ssh_helper:
                             print(l_step, l_server, l_client, l_libs)
                     assert l_server and l_client and l_libs
 
-            elif steps.count('rpm')>-1:
+            elif steps.count('rpm')>0:
                 print('rpm.....')
             else:
                 print("Не известный тип пакета %s" % steps)
