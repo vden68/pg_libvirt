@@ -128,8 +128,11 @@ class Lib_helper:
 
         num = 1
         while num<60:
-            os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone' \
-                  % (name_image, clone_name))
+            try:
+                os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone' \
+                     % (name_image, clone_name))
+            except:
+                pass
 
             time.sleep(2)
             check_name = app.domain_check_for_availability(check_domain=clone_name, conn=conn)
