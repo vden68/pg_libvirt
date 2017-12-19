@@ -53,26 +53,11 @@ class Ssh_helper:
         for steps_f in steps_system:
             steps = steps_f['package'][-3:]
             print(steps.count('deb'))
+
             if steps.count('deb')>0:
-                with pytest.allure.step('Проверка установленных %s пакетов' % steps):
-                    list_step = self.sshh.do_run(command="dpkg --get-selections | grep postgrespro")
-
-                    l_server= False
-                    l_client= False
-                    l_libs= False
-                    for l_step in list_step:
-                        with pytest.allure.step('. %s' % l_step):
-                            if l_step.count("server")>-1 and l_step.count("install")>-1:
-                                l_server= True
-                                if l_step.count("client")>-1 and l_step.count("install")>-1:
-                                    l_client= True
-                                    if l_step.count("libs") > -1 and l_step.count("install") > -1:
-                                        l_libs = True
-                            print(l_step, l_server, l_client, l_libs)
-                    assert l_server and l_client and l_libs
-
+                self.checking_installed_packages(steps)
             elif steps.count('rpm')>0:
-                print('rpm.....')
+                self.checking_installed_packages(steps)
             else:
                 print("Не известный тип пакета %s" % steps)
             print(steps)
@@ -81,6 +66,25 @@ class Ssh_helper:
             self.sshh.do_run(command="sudo shutdown +1 -h")
 
         self.sshh.do_close()
+
+
+    def checking_installed_packages(self, steps):
+        with pytest.allure.step('Проверка установленных %s пакетов' % steps):
+            list_step = self.sshh.do_run(command="dpkg --get-selections | grep postgrespro")
+
+            l_server = False
+            l_client = False
+            l_libs = False
+            for l_step in list_step:
+                with pytest.allure.step('. %s' % l_step):
+                    if l_step.count("server") > -1 and l_step.count("install") > -1:
+                        l_server = True
+                        if l_step.count("client") > -1 and l_step.count("install") > -1:
+                            l_client = True
+                            if l_step.count("libs") > -1 and l_step.count("install") > -1:
+                                l_libs = True
+                    print(l_step, l_server, l_client, l_libs)
+            assert l_server and l_client and l_libs
 
 
 
