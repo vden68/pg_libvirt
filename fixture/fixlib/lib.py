@@ -136,7 +136,7 @@ class Lib_helper:
 
             time.sleep(2)
             check_name = app.domain_check_for_availability(check_domain=clone_name, conn=conn)
-            print('check_name = ', check_name.name())
+            #print('check_name = ', check_name.name())
             if check_name is not None:
                 break
             num = num+1
