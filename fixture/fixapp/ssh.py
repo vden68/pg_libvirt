@@ -77,7 +77,7 @@ class Ssh_helper:
             print(steps)
 
         with pytest.allure.step('Выключаем ВМ'):
-            self.sshh.do_run(command="sudo shutdown -t 1 -h")
+            self.sshh.do_run(command="sudo shutdown +1 -h")
 
         self.sshh.do_close()
 
