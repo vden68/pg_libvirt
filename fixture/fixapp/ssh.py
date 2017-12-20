@@ -30,7 +30,7 @@ class Ssh_helper:
                 repo = json.load(f)
 
 
-        split_name= self.app.pgl_kvm.name_sourse_image.split('-')
+        split_name= self.app.pgl_kvm.name_sourse_image.split('--')
 
         steps_system= repo[split_name[0]][split_name[1]][split_name[2]][split_name[3]]
 
@@ -56,12 +56,6 @@ class Ssh_helper:
 
             #if steps.count('deb')>0:
             self.checking_installed_packages(steps)
-            """
-            elif steps.count('rpm')>0:
-                self.checking_installed_packages(steps)
-            else:
-                print("Не известный тип пакета %s" % steps)
-            """
             print(steps)
 
         with pytest.allure.step('Выключаем ВМ'):
@@ -86,11 +80,11 @@ class Ssh_helper:
             l_libs = False
             for l_step in list_step:
                 with pytest.allure.step('. %s' % l_step):
-                    if l_step.count("server") > -1: # and l_step.count("install") > -1:
+                    if l_step.count("server") > -1:
                         l_server = True
-                        if l_step.count("client") > -1: # and l_step.count("install") > -1:
+                        if l_step.count("client") > -1:
                             l_client = True
-                            if l_step.count("libs") > -1: # and l_step.count("install") > -1:
+                            if l_step.count("libs") > -1:
                                 l_libs = True
                     print(l_step, l_server, l_client, l_libs)
             assert l_server and l_client and l_libs

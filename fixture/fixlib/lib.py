@@ -72,13 +72,13 @@ class Lib_helper:
 
         while check_name is not None:
             now = datetime.today()
-            clone_mame= pgl_kvm.name_sourse_image+'-'+pgl_kvm.prefix+'-'+pgl_kvm.number_test_set\
-                        +'-'+str(now)[5:10].replace('-','') + '-'+str(number_clone)
+            clone_mame= pgl_kvm.name_sourse_image+'--'+pgl_kvm.prefix+'--'+pgl_kvm.number_test_set\
+                        +'--'+str(now)[5:10].replace('-','') + '--'+str(number_clone)
 
-            check_name=app.domain_check_for_availability(check_domain=clone_mame, conn=conn)
+            check_name=app.domain_check_for_availability(check_domain='yes--'+clone_mame, conn=conn)
             number_clone = number_clone +1
 
-        print('original_name=', pgl_kvm.name_sourse_image, clone_mame)
+        print('\n original_name=', pgl_kvm.name_sourse_image, clone_mame)
         return clone_mame
 
 
@@ -141,6 +141,12 @@ class Lib_helper:
                 break
             num = num+1
             time.sleep(10)
+
+    def rename_image(app, name_image, name_image_new, conn):
+
+        dom = conn.lookupByName(name_image)
+
+        dom.rename(name_image_new)
 
 
 
