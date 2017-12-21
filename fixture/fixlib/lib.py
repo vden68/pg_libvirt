@@ -149,6 +149,13 @@ class Lib_helper:
         dom.rename(name_image_new)
 
 
+    def get_list_images(app, conn):
+
+        list_images= conn.listAllDomains(0)
+
+        return list_images
+
+
 
 
 

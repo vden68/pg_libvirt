@@ -77,9 +77,30 @@ class Image_helper:
         with pytest.allure.step('Переименовываем виртуальную машину %s в %s' % (name_image, name_image_new)):
             self.flib.rename_image(name_image=name_image, name_image_new=name_image_new, conn=conn_open_kvm)
 
+        conn_open_kvm.close()
+
+
+    def get_list_delete(self):
+
+        with pytest.allure.step('Подключаемся к KVM'):
+            conn_open_kvm = self.flib.connection_open()
+
+        with pytest.allure.step('Получаем список images '):
+            list_images = self.flib.get_list_images(conn=conn_open_kvm)
+
+        print('\n')
+        for list_image in list_images:
+            print(list_image.name())
+
+            split_image= list_image.name().split('--')
+            if len(split_image)>7:
+                print('.....', list_image.name())
+                print(split_image[0],)
 
 
         conn_open_kvm.close()
+
+
 
 
 
