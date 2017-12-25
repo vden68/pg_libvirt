@@ -12,7 +12,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -29,7 +29,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ yakkety main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -49,7 +49,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ trusty main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -70,7 +70,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ zesty main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ]
@@ -87,7 +87,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ artful main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -110,7 +110,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -133,7 +133,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -155,7 +155,7 @@
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -176,7 +176,7 @@
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -198,7 +198,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ]
@@ -220,7 +220,7 @@
                      "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
                      "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
                      "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
-                     "zypper install -fy postgrespro-std-10-server-10.1.2-1.noarch",
+                     "zypper install -fy postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -236,7 +236,7 @@
                      "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
                      "zypper ar http://repo.postgrespro.ru/pgpro-10-beta/sles/12.1 pgpro-std-10",
                      "zypper refresh",
-                     "zypper install -fy postgrespro-std-10-server-10.1.2-1.x86_64",
+                     "zypper install -fy postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -259,7 +259,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.res6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -283,7 +283,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el7.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -305,7 +305,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ]
@@ -324,7 +324,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/debian/ stretch main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -343,7 +343,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/debian/ wheezy main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -364,7 +364,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/debian/ jessie main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ]
@@ -386,7 +386,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.res6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -405,7 +405,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.res7.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -429,7 +429,7 @@
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -449,7 +449,7 @@
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
                      "echo rpm http://repo.postgrespro.ru/pgpro-10-beta/altlinux/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-std-10-server",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -472,7 +472,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el7.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -493,7 +493,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -516,7 +516,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el6.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
@@ -536,7 +536,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-std-10-server-10.1.2-1.el7.centos.x86_64",
+                     "yum install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
