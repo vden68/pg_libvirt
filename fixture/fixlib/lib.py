@@ -4,6 +4,7 @@ __author__ = 'vden'
 import libvirt
 import time
 import os
+from xml.dom import minidom
 from datetime import datetime
 
 from model.lip_domain import Lip_domain
@@ -154,6 +155,46 @@ class Lib_helper:
         list_images= conn.listAllDomains(0)
 
         return list_images
+
+    def get_path_img(app, conn, del_img):
+
+        dom = conn.lookupByName(del_img)
+        xml_img = dom.XMLDesc()
+        xml_i = minidom.parseString(xml_img)
+        path_f = xml_i.getElementsByTagName('disk')
+
+        for p_f in path_f:
+
+            diskNodes = p_f.childNodes
+
+            for diskNode in diskNodes:
+
+                if diskNode.nodeName[0:1] != '#':
+
+                    for attr in diskNode.attributes.keys():
+
+                        if diskNode.attributes[attr].name == 'file':
+                            print('    ' + diskNode.attributes[attr].name + ' = ' +
+                                  diskNode.attributes[attr].value)
+                            path_img = diskNode.attributes[attr].value
+                            break
+
+
+        print('path_img=', path_img)
+
+        return path_img
+
+
+    def del_img(app, conn, del_img, path_img):
+
+        dom = conn.lookupByName(del_img)
+        dom.undefine()
+        os.system('sudo rm %s' %path_img)
+
+
+
+
+
 
 
 

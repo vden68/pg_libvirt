@@ -89,16 +89,54 @@ class Image_helper:
             list_images = self.flib.get_list_images(conn=conn_open_kvm)
 
         print('\n')
+        list_yes = []
         for list_image in list_images:
             print(list_image.name())
 
+
             split_image= list_image.name().split('--')
-            if len(split_image)>7:
+            if len(split_image)>7 and (split_image[0]=='yes'):
                 print('.....', list_image.name())
-                print(split_image[0],)
+                print(split_image[0])
+                list_yes.append(list_image.name())
+
+        print('list_yes= \n', list_yes)
+        list_yes.sort(reverse=True)
+        print('list_yes= \n', list_yes)
+
+        list_del=[]
+        split_equally=None
+        for list_y in list_yes:
+            split_yes=list_y.split('--')
+            if split_yes[0]+split_yes[1]+split_yes[2]+split_yes[3]+split_yes[4]+split_yes[5]+split_yes[6] == split_equally:
+                list_del.append(list_y)
+            else:
+                split_equally=split_yes[0]+split_yes[1]+split_yes[2]+split_yes[3]+split_yes[4]+split_yes[5]+split_yes[6]
+
+        print('list_del=', list_del)
+
+        conn_open_kvm.close()
+
+        return list_del
+
+    def delete_images(self, list_del):
+
+        with pytest.allure.step('Подключаемся к KVM'):
+            conn_open_kvm = self.flib.connection_open()
+
+        with pytest.allure.step('Удаляем '):
+            for list_d in list_del:
+
+                with pytest.allure.step('Получаем путь к файлу .img ВМ %s' %list_d):
+                    path_img= self.flib.get_path_img(conn=conn_open_kvm, del_img=list_d)
+
+                with pytest.allure.step('Удаляем %s' %list_d):
+                    self.flib.del_img(conn=conn_open_kvm, del_img=list_d, path_img=path_img)
+
 
 
         conn_open_kvm.close()
+
 
 
 
