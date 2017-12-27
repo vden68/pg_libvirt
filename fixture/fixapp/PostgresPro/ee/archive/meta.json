@@ -1,0 +1,1090 @@
+{
+   "linux" : {
+      "rosa-sx" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "version" : "9.6.4.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.4.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.4.1-1.res6.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.2-1.res6.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.2"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.1-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.5.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.1.2-2.res6.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.1.2-2.res6.x86_64.rpm",
+                  "version" : "9.6.1.2"
+               },
+               {
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.6.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.1-1.res6.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.2-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.6.2",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.1-1.res6.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.1-1.res6.x86_64.rpm",
+                  "version" : "9.6.3.1"
+               },
+               {
+                  "version" : "9.6.3.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.2-1.res6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.2-1.res6.x86_64"
+                  ]
+               }
+            ]
+         }
+      },
+      "sles" : {
+         "11" : {
+            "x86_64" : [
+               {
+                  "version" : "9.6.4.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.4.1-1.0.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.4.1-1.0.x86_64"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.0.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.2",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.5.2-1.0.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.5.1-1.0.x86_64"
+                  ],
+                  "version" : "9.6.5.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.1-1.0.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.6.1-1.0.x86_64"
+                  ],
+                  "version" : "9.6.6.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.0.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.0.x86_64.rpm",
+                  "version" : "9.6.6.2",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.6.2-1.0.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.3.1-1.0.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.3.1-1.0.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.3.1"
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.2-1.0.x86_64.rpm",
+                  "version" : "9.6.3.2",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/sles/11 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.3.2-1.0.x86_64"
+                  ]
+               }
+            ]
+         },
+         "12.1" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/sles/12.1 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.4.1-1.0.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.4.1-1.0.x86_64.rpm",
+                  "version" : "9.6.4.1"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/sles/12.1 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.5.2-1.0.x86_64"
+                  ],
+                  "version" : "9.6.5.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.0.x86_64.rpm"
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.1-1.0.x86_64.rpm",
+                  "version" : "9.6.5.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/sles/12.1 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.5.1-1.0.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/sles/12.1 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.6.1-1.0.x86_64"
+                  ],
+                  "version" : "9.6.6.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.0.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "version" : "9.6.6.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.0.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/sles/12.1 pgpro-ent-9.6",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-enterprise96-server-9.6.6.2-1.0.x86_64"
+                  ]
+               }
+            ]
+         }
+      },
+      "altlinux" : {
+         "8" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.4.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.4.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.5.2-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.2",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.5.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "package" : "postgrespro-enterprise9.6-server-9.6.6.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.6.1"
+               },
+               {
+                  "version" : "9.6.6.2",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.6.2-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               }
+            ]
+         }
+      },
+      "rosa-el" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.4.1-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.4.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.4.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.2-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.5.2",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.1-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.5.1",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.1-1.res6.x86_64.rpm"
+               },
+               {
+                  "version" : "9.6.1.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.1.2-2.res6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.1.2-2.res6.x86_64"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.6.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.1-1.res6.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.2-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.6.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.res6.x86_64.rpm"
+               },
+               {
+                  "package" : "postgrespro-enterprise96-server-9.6.3.1-1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.3.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.1-1.res6.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.2-1.res6.x86_64"
+                  ],
+                  "version" : "9.6.3.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.2-1.res6.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "centos" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "version" : "9.6.5.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.el6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.2-1.el6.x86_64"
+                  ]
+               },
+               {
+                  "version" : "9.6.6.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.el6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.1-1.el6.x86_64"
+                  ]
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.el6.x86_64.rpm",
+                  "version" : "9.6.6.2",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.2-1.el6.x86_64"
+                  ]
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.4.1-1.el7.centos.x86_64.rpm",
+                  "version" : "9.6.4.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.4.1-1.el7.centos.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.2-1.el7.centos.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.el7.centos.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.2"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.1-1.el7.centos.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.5.1-1.el7.centos.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.1"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.1.2-1.el7.centos.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.1.2-1.el7.centos.x86_64.rpm",
+                  "version" : "9.6.1.2"
+               },
+               {
+                  "version" : "9.6.1.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.1.1-1.el7.centos.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.1.1-1.el7.centos.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.0.1-4.el7.centos.x86_64"
+                  ],
+                  "version" : "9.6.0.1",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.0.1-4.el7.centos.x86_64.rpm"
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.1.2-2.el7.centos.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.1.2-2.el7.centos.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.1.2"
+               },
+               {
+                  "version" : "9.6.6.1",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.el7.centos.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.1-1.el7.centos.x86_64"
+                  ]
+               },
+               {
+                  "version" : "9.6.6.2",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.el7.centos.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.2-1.el7.centos.x86_64"
+                  ]
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.1-1.el7.centos.x86_64.rpm",
+                  "version" : "9.6.3.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.1-1.el7.centos.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.2-1.el7.centos.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.3.2-1.el7.centos.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.3.2"
+               }
+            ]
+         }
+      },
+      "altlinux-systemd-spt" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "9.6.4.1",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.4.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/altlinux-systemd-spt/7/x86_64/RPMS.pgpro/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise9.6-server-9.6.4.1-alt1.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/altlinux-systemd-spt/7/x86_64/RPMS.pgpro/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise9.6-server-9.6.5.2-alt1.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.5.2-alt1.x86_64.rpm",
+                  "version" : "9.6.5.2"
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.5.1-alt1.x86_64.rpm",
+                  "version" : "9.6.5.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/altlinux-systemd-spt/7/x86_64/RPMS.pgpro/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise9.6-server-9.6.5.1-alt1.x86_64"
+                  ]
+               }
+            ]
+         }
+      },
+      "rhel" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.4.1-1.el7.x86_64"
+                  ],
+                  "version" : "9.6.4.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.4.1-1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "version" : "9.6.5.2",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.2-1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.2-1.el7.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.5.1-1.el7.x86_64"
+                  ],
+                  "version" : "9.6.5.1",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.5.1-1.el7.x86_64.rpm"
+               },
+               {
+                  "package" : "postgrespro-enterprise96-server-9.6.6.1-1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.6.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.1-1.el7.x86_64"
+                  ]
+               },
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise96-server-9.6.6.2-1.el7.x86_64.rpm",
+                  "version" : "9.6.6.2",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.6.2-1.el7.x86_64"
+                  ]
+               },
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.1-1.el7.x86_64"
+                  ],
+                  "version" : "9.6.3.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.1-1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               },
+               {
+                  "version" : "9.6.3.2",
+                  "package" : "postgrespro-enterprise96-server-9.6.3.2-1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.3.2-1.el7.x86_64"
+                  ]
+               }
+            ]
+         }
+      },
+      "altlinux-spt" : {
+         "8" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/altlinux-spt/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/altlinux-spt/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "package" : "postgrespro-enterprise9.6-server-9.6.3.2-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.3.2"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "version" : "9.6.4.1",
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.4.1-alt1.x86_64.rpm"
+               },
+               {
+                  "version" : "9.6.5.2",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.5.2-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.5.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.5.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "package" : "postgrespro-enterprise9.6-server-9.6.1.2-alt2.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.1.2"
+               },
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.1.2-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.1.2",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.6.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.6.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "package" : "postgrespro-enterprise9.6-server-9.6.6.2-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.6.2",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ]
+               },
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "package" : "postgrespro-enterprise9.6-server-9.6.3.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.3.1"
+               },
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.3.2-alt1.x86_64.rpm",
+                  "version" : "9.6.3.2"
+               }
+            ]
+         }
+      }
+   },
+   "windows" : {
+      "sdk71" : {
+         "x86" : [],
+         "x86_64" : [
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.4.1/win/PostgresProEnterprise_9.6.4.1_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "package" : "PostgresProEnterprise_9.6.4.1_X64bit_Setup.exe",
+               "version" : "9.6.4.1"
+            },
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.5.2/win/PostgresProEnterprise_9.6.5.2_X64bit_Setup.exe",
+               "package" : "PostgresProEnterprise_9.6.5.2_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "version" : "9.6.5.2"
+            },
+            {
+               "package" : "PostgresProEnterprise_9.6.5.1_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "version" : "9.6.5.1",
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.5.1/win/PostgresProEnterprise_9.6.5.1_X64bit_Setup.exe"
+            },
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.1.2/win/PostgresProEnterprise_9.6.1.2_X64bit_Setup.exe",
+               "package" : "PostgresProEnterprise_9.6.1.2_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "version" : "9.6.1.2"
+            },
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.6.1/win/PostgresProEnterprise_9.6.6.1_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "package" : "PostgresProEnterprise_9.6.6.1_X64bit_Setup.exe",
+               "version" : "9.6.6.1"
+            },
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.6.2/win/PostgresProEnterprise_9.6.6.2_X64bit_Setup.exe",
+               "package" : "PostgresProEnterprise_9.6.6.2_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "version" : "9.6.6.2"
+            },
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.3.1/win/PostgresProEnterprise_9.6.3.1_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "package" : "PostgresProEnterprise_9.6.3.1_X64bit_Setup.exe",
+               "version" : "9.6.3.1"
+            },
+            {
+               "install" : "http://repoee.postgrespro.ru/archive/pgproee-9.6.3.2/win/PostgresProEnterprise_9.6.3.2_X64bit_Setup.exe",
+               "version" : "9.6.3.2",
+               "package" : "PostgresProEnterprise_9.6.3.2_X64bit_Setup.exe",
+               "product" : "PostgresPro Standard"
+            }
+         ]
+      }
+   }
+}
+
