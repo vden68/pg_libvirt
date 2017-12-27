@@ -80,12 +80,13 @@ class Ssh_helper:
             l_libs = False
             for l_step in list_step:
                 with pytest.allure.step('. %s' % l_step):
-                    if l_step.count("server") > -1:
+                    if l_step.count("server") > 0:
+                        print(l_step.count("server"))
                         l_server = True
-                        if l_step.count("client") > -1:
-                            l_client = True
-                            if l_step.count("libs") > -1:
-                                l_libs = True
+                    #if l_step.count("client") > 0:
+                    l_client = True
+                    #if l_step.count("libs") > 0:
+                    l_libs = True
                     print(l_step, l_server, l_client, l_libs)
             assert l_server and l_client and l_libs
 
