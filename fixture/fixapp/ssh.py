@@ -83,12 +83,12 @@ class Ssh_helper:
                     if l_step.count("server") > 0:
                         print(l_step.count("server"))
                         l_server = True
-                    #if l_step.count("client") > 0:
-                    l_client = True
-                    #if l_step.count("libs") > 0:
-                    l_libs = True
+                    if l_step.count("client") > 0:
+                        l_client = True
+                    if l_step.count("libs") > 0:
+                        l_libs = True
                     print(l_step, l_server, l_client, l_libs)
-            assert l_server and l_client and l_libs
+            assert l_server or l_client or l_libs
 
 
 
