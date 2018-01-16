@@ -1,113 +1,24 @@
 {
+   "windows" : {
+      "sdk71" : {
+         "x86" : [],
+         "x86_64" : [
+            {
+               "product" : "PostgresPro Enterprise",
+               "install" : "http://repo.postgrespro.ru/pgproee-10-beta/win/PostgresProEnterprise_10.1.1_64bit_Setup.exe",
+               "version" : "10.1.1",
+               "package" : "PostgresProEnterprise_10.1.1_64bit_Setup.exe"
+            }
+         ]
+      }
+   },
    "linux" : {
-      "centos" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-ent-10-server-10.1.1-1.el7.centos.x86_64",
-                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
-                     "service postgrespro-ent-10 start"
-                  ],
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.el7.centos.x86_64.rpm",
-                  "product" : "PostgresPro Enterprise",
-                  "version" : "10.1.1"
-               }
-            ]
-         },
-         "6" : {
-            "x86_64" : [
-               {
-                  "version" : "10.1.1",
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.el6.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-ent-10-server-10.1.1-1.el6.x86_64",
-                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
-                     "service postgrespro-ent-10 start"
-                  ]
-               }
-            ]
-         }
-      },
-      "sles" : {
-         "12.1" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
-                     "zypper ar http://repo.postgrespro.ru/pgproee-10-beta/sles/12.1 pgpro-ent-10",
-                     "zypper refresh",
-                     "zypper install -fy postgrespro-ent-10-server-10.1.1-1.x86_64",
-                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
-                     "service postgrespro-ent-10 start"
-                  ],
-                  "version" : "10.1.1"
-               }
-            ]
-         },
-         "11" : {
-            "x86_64" : [
-               {
-                  "version" : "10.1.1",
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
-                     "zypper ar http://repo.postgrespro.ru/pgproee-10-beta/sles/11 pgpro-ent-10",
-                     "zypper refresh",
-                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
-                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
-                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
-                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
-                     "zypper install -fy postgrespro-ent-10-server-10.1.1-1.x86_64",
-                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
-                     "service postgrespro-ent-10 start"
-                  ]
-               }
-            ]
-         }
-      },
       "debian" : {
-         "9" : {
-            "x86_64" : [
-               {
-                  "version" : "10.1.1",
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-ent-10-server_10.1.1-1.stretch_amd64.deb",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru/pgproee-10-beta/debian/ stretch main > /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-ent-10-server",
-                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
-                     "service postgrespro-ent-10 start"
-                  ]
-               }
-            ]
-         },
          "8" : {
             "x86_64" : [
                {
-                  "package" : "postgrespro-ent-10-server_10.1.1-1.jessie_amd64.deb",
+                  "package" : "postgrespro-ent-10-server_10.1.1-0a1.jessie_amd64.deb",
+                  "version" : "10.1.1",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
@@ -118,29 +29,25 @@
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
-                  "product" : "PostgresPro Enterprise",
-                  "version" : "10.1.1"
+                  "product" : "PostgresPro Enterprise"
                }
             ]
-         }
-      },
-      "altlinux" : {
-         "8" : {
+         },
+         "9" : {
             "x86_64" : [
                {
+                  "package" : "postgrespro-ent-10-server_10.1.1-0a1.stretch_amd64.deb",
                   "version" : "10.1.1",
                   "install" : [
                      "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru/pgproee-10-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "echo rpm http://repo.postgrespro.ru/pgproee-10-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgproee-10-beta/debian/ stretch main > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-ent-10-server",
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
-                  "package" : "postgrespro-ent-10-server-10.1.1-alt1.x86_64.rpm",
                   "product" : "PostgresPro Enterprise"
                }
             ]
@@ -150,8 +57,6 @@
          "1.5" : {
             "x86_64" : [
                {
-                  "version" : "10.1.1",
-                  "product" : "PostgresPro Enterprise",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
@@ -162,7 +67,32 @@
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
-                  "package" : "postgrespro-ent-10-server_10.1.1-1.smolensk_amd64.deb"
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-ent-10-server_10.1.1-0a1.smolensk_amd64.deb",
+                  "version" : "10.1.1"
+               }
+            ]
+         }
+      },
+      "rhel" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-ent-10-server-10.1.1-0a1.el7.x86_64",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ]
                }
             ]
          }
@@ -172,6 +102,8 @@
             "x86_64" : [
                {
                   "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.res6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
@@ -180,35 +112,117 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-ent-10-server-10.1.1-1.res6.x86_64",
+                     "yum install -y postgrespro-ent-10-server-10.1.1-0a1.res6.x86_64",
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
-                  ],
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.res6.x86_64.rpm",
-                  "product" : "PostgresPro Enterprise"
+                  ]
                }
             ]
          }
       },
-      "rhel" : {
-         "7" : {
+      "sles" : {
+         "11" : {
             "x86_64" : [
                {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repo.postgrespro.ru/pgproee-10-beta/sles/11 pgpro-ent-10",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro-ent-10-server-10.1.1-0a1.x86_64",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.x86_64.rpm",
+                  "version" : "10.1.1"
+               }
+            ]
+         },
+         "12.1" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repo.postgrespro.ru/pgproee-10-beta/sles/12.1 pgpro-ent-10",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-ent-10-server-10.1.1-0a1.x86_64",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.x86_64.rpm",
+                  "version" : "10.1.1"
+               }
+            ]
+         }
+      },
+      "rosa-sx" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Enterprise",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-ent-10-server-10.1.1-1.el7.x86_64",
+                     "yum install -y postgrespro-ent-10-server-10.1.1-0a1.res6.x86_64",
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.el7.x86_64.rpm",
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.res6.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "centos" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.el6.x86_64.rpm",
                   "product" : "PostgresPro Enterprise",
-                  "version" : "10.1.1"
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-ent-10-server-10.1.1-0a1.el6.x86_64",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ]
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-0a1.el7.centos.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-ent-10-server-10.1.1-0a1.el7.centos.x86_64",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ]
                }
             ]
          }
@@ -217,7 +231,8 @@
          "16.04" : {
             "x86_64" : [
                {
-                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-ent-10-server_10.1.1-0a1.xenial_amd64.deb",
+                  "version" : "10.1.1",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
@@ -228,31 +243,7 @@
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
-                  "package" : "postgrespro-ent-10-server_10.1.1-1.xenial_amd64.deb",
-                  "version" : "10.1.1"
-               }
-            ]
-         }
-      },
-      "rosa-sx" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-ent-10-server-10.1.1-1.res6.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://repo.postgrespro.ru/pgproee-10-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-ent-10-server-10.1.1-1.res6.x86_64",
-                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
-                     "service postgrespro-ent-10 start"
-                  ],
-                  "product" : "PostgresPro Enterprise",
-                  "version" : "10.1.1"
+                  "product" : "PostgresPro Enterprise"
                }
             ]
          }
@@ -262,7 +253,6 @@
             "x86_64" : [
                {
                   "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-ent-10-server-10.1.1-alt1.x86_64.rpm",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y curl gnupg2",
@@ -274,23 +264,33 @@
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
-                  "version" : "10.1.1"
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-alt0a1.x86_64.rpm"
                }
             ]
          }
-      }
-   },
-   "windows" : {
-      "sdk71" : {
-         "x86_64" : [
-            {
-               "version" : "10.1.1",
-               "install" : "http://repo.postgrespro.ru/pgproee-10-beta/win/PostgresProEnterprise_10.1.1_64bit_Setup.exe",
-               "package" : "PostgresProEnterprise_10.1.1_64bit_Setup.exe",
-               "product" : "PostgresPro Enterprise"
-            }
-         ],
-         "x86" : []
+      },
+      "altlinux" : {
+         "8" : {
+            "x86_64" : [
+               {
+                  "version" : "10.1.1",
+                  "package" : "postgrespro-ent-10-server-10.1.1-alt0a1.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru/pgproee-10-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://repo.postgrespro.ru/pgproee-10-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-ent-10-server",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ]
+               }
+            ]
+         }
       }
    }
 }
