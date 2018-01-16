@@ -119,7 +119,7 @@ class Lib_helper:
 
             pg_time= pg_time+1
             time.sleep(1)
-            if pg_time>200:
+            if pg_time>400:
                 print('Failed not received IP address ')
                 exit(1)
 
