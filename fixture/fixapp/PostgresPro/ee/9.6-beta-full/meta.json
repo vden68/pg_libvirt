@@ -172,10 +172,10 @@
                      "echo rpm http://repo.postgrespro.ru/pgproee-9.6-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "echo rpm http://repo.postgrespro.ru/pgproee-9.6-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro-enterprise9.6-server"
+                     "apt-get install -y postgrespro-enterprise9.6*"
                   ],
                   "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise9.6*",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.6.3-alt1.x86_64.rpm",
                   "version" : "9.6.6.3"
                }
             ]
