@@ -4,7 +4,6 @@ __author__ = 'vden'
 import pytest
 import time
 
-@pytest.mark.test_install_postgres_from_the_repository
 @pytest.allure.step('Установка Postgres из репозитория')
 def test_install_postgres_from_the_repository(app):
 

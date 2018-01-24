@@ -88,21 +88,7 @@ class Image_helper:
         with pytest.allure.step('Получаем список images '):
             list_images = self.flib.get_list_images(conn=conn_open_kvm)
 
-        print('\n')
-        list_yes = []
-        for list_image in list_images:
-            print(list_image.name())
-
-
-            split_image= list_image.name().split('--')
-            if len(split_image)>7 and (split_image[0]=='yes'):
-                print('.....', list_image.name())
-                print(split_image[0])
-                list_yes.append(list_image.name())
-
-        print('list_yes= \n', list_yes)
-        list_yes.sort(reverse=True)
-        print('list_yes= \n', list_yes)
+        list_yes = self.get_list_yes(list_images)
 
         list_del=[]
         split_equally=None
@@ -118,6 +104,22 @@ class Image_helper:
         conn_open_kvm.close()
 
         return list_del
+
+    def get_list_yes(self, list_images):
+        print('\n')
+        list_yes = []
+        for list_image in list_images:
+            print(list_image.name())
+
+            split_image = list_image.name().split('--')
+            if len(split_image) > 7 and (split_image[0] == 'yes'):
+                print('.....', list_image.name())
+                print(split_image[0])
+                list_yes.append(list_image.name())
+        print('list_yes= \n', list_yes)
+        list_yes.sort(reverse=True)
+        print('list_yes= \n', list_yes)
+        return list_yes
 
     def delete_images(self, list_del):
 
@@ -136,6 +138,20 @@ class Image_helper:
 
 
         conn_open_kvm.close()
+
+
+    def get_list_ready_images(self):
+        with pytest.allure.step('Подключаемся к KVM'):
+            conn_open_kvm = self.flib.connection_open()
+
+        with pytest.allure.step('Получаем список images '):
+            list_images = self.flib.get_list_images(conn=conn_open_kvm)
+
+        list_ready_images=[]
+
+
+
+        return list_ready_images
 
 
 
