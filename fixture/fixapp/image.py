@@ -109,14 +109,14 @@ class Image_helper:
         print('\n')
         list_yes = []
         for list_image in list_images:
-            print(list_image.name())
+            #print(list_image.name())
 
             split_image = list_image.name().split('--')
             if len(split_image) > 7 and (split_image[0] == 'yes'):
                 print('.....', list_image.name())
-                print(split_image[0])
+                #print(split_image[0])
                 list_yes.append(list_image.name())
-        print('list_yes= \n', list_yes)
+        #print('list_yes= \n', list_yes)
         list_yes.sort(reverse=True)
         print('list_yes= \n', list_yes)
         return list_yes
@@ -147,11 +147,45 @@ class Image_helper:
         with pytest.allure.step('Получаем список images '):
             list_images = self.flib.get_list_images(conn=conn_open_kvm)
 
-        list_ready_images=[]
+        list_yes=self.get_list_yes(list_images)
+        list_yes.sort(reverse=False)
+        print(list_yes)
+
+        list_ready_images = []
+
+        sly0 = None
+        sly1 = None
+        sly2 = None
+        sly3 = None
+        sly4 = None
+        sly5 = None
+        sly6 = None
+
+        for list_y in list_yes:
+            split_list_y = list_y.split('--')
+            if sly0 == None or (split_list_y[0] != sly0 or split_list_y[1] != sly1 or split_list_y[2] != sly2 or
+                                 split_list_y[3] != sly3 or split_list_y[4] != sly4 or split_list_y[5] != sly5 or
+                                 split_list_y[6] != sly6):
+
+                sly0 = split_list_y[0]
+                sly1 = split_list_y[1]
+                sly2 = split_list_y[2]
+                sly3 = split_list_y[3]
+                sly4 = split_list_y[4]
+                sly5 = split_list_y[5]
+                sly6 = split_list_y[6]
+
+                list_ready_images.append(sly1+'--'+sly2+'--'+sly3+'--'+sly4+'--'+sly5+'--'+sly6)
+
+        print('list_ready_images=', list_ready_images)
+
+        dict_ready_images = {"images":list_ready_images}
+
+        print('dict_ready_images=', dict_ready_images)
 
 
 
-        return list_ready_images
+        return dict_ready_images
 
 
 

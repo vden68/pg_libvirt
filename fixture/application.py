@@ -3,6 +3,7 @@ __author__ = 'vden'
 
 from fixture.fixapp.image import Image_helper
 from fixture.fixapp.ssh import Ssh_helper
+from fixture.fixapp.json import Json_helper
 
 
 class Application:
@@ -10,6 +11,7 @@ class Application:
     def __init__(self, pgl_kvm, pgl_ssh):
         self.img = Image_helper(self)
         self.sh= Ssh_helper(self)
+        self.jsn= Json_helper(self)
 
         self.pgl_kvm= pgl_kvm
         self.pgl_ssh= pgl_ssh
