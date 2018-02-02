@@ -179,13 +179,13 @@ class Image_helper:
 
         print('list_ready_images=', list_ready_images)
 
-        dict_ready_images = {"images":list_ready_images}
+        #dict_ready_images = {"images":list_ready_images}
 
-        print('dict_ready_images=', dict_ready_images)
+        #print('dict_ready_images=', dict_ready_images)
 
 
 
-        return dict_ready_images
+        return list_ready_images
 
 
 
