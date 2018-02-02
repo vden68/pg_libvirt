@@ -18,9 +18,9 @@ class Jenkins_helper:
 
         property_str = property_key + ' = '
         for l_property in list_property:
-            property_str = property_str + l_property + ' , ' + '\n'
+            property_str = property_str + l_property + ' , '
 
-        property_str = property_str[:-3]
+        property_str = property_str[:-2]
 
         open_config_file.write(property_str)
         open_config_file.close()
