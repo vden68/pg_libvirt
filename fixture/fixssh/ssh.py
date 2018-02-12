@@ -2,6 +2,7 @@
 __author__ = 'vden'
 
 import time
+import pytest
 
 #from eventlet.timeout import Timeout
 #import eventlet
@@ -41,11 +42,12 @@ class Sshh_helper:
 
         list_exec=[]
 
-        stdin, stdout, stderr = self.client.exec_command(command, timeout=1200)
-        for line in stdout or stderr : # or stdin:
-            print('..' + line.strip('\n'))
-            #print('line', line)
-            list_exec.append(line.strip('\n'))
+        with pytest.allure.step('Выполняем команду %s' %command):
+            stdin, stdout, stderr = self.client.exec_command(command, timeout=1200)
+            for line in stdout or stderr : # or stdin:
+                print('..' + line.strip('\n'))
+                #print('line', line)
+                list_exec.append(line.strip('\n'))
             
 
         return list_exec

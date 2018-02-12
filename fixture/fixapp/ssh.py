@@ -42,8 +42,8 @@ class Ssh_helper:
             with pytest.allure.step('Выполняем install из meta.json' ):
                 for step in steps:
                     print('\nstep=', step)
-                    with pytest.allure.step('step= sudo sh -c %s' % step):
-                        list_step=self.sshh.do_run(command="sudo sh -c '"+step+"'")
+                    with pytest.allure.step('step= sudo sh -c %s ' % step):
+                        list_step=self.sshh.do_run(command="sudo sh -c '"+step+"'")  #sudo sh -c
                         for l_step in list_step:
                             with pytest.allure.step('. %s' % l_step):
                                 pass
