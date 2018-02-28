@@ -1,91 +1,21 @@
 {
-   "windows" : {},
    "linux" : {
-      "astra-smolensk" : {
-         "1.5" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.6"
-                  ],
-                  "packages" : [
-                     "postgrespro-9.6_9.6.7.1-1.smolensk.pro_amd64.deb"
-                  ],
-                  "version" : "9.6.7.1",
-                  "package" : "postgrespro-9.6_9.6.7.1-1.smolensk.pro_amd64.deb",
-                  "product" : "PostgresPro Enterprise"
-               }
-            ]
-         }
-      },
-      "rosa-sx" : {
+      "rhel" : {
          "7" : {
             "x86_64" : [
                {
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.res7.x86_64.rpm",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/rosa-sx/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.res7.x86_64"
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64"
                   ],
-                  "version" : "9.6.7.1",
-                  "packages" : [
-                     "libzstd-1.1.0-1.res7.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.res7.x86_64.rpm",
-                     "mamonsu-2.3.3-1.res7.noarch.rpm",
-                     "pg_repack96-1.3.4-1.res7.x86_64.rpm",
-                     "pg_repack96-debuginfo-1.3.4-1.res7.x86_64.rpm",
-                     "pgbadger-9.2-1.res7.noarch.rpm",
-                     "pgbouncer-1.7.2-1.res7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.7.2-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-debuginfo-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.res7.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.res7.x86_64.rpm",
-                     "zstd-1.1.0-1.res7.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.res7.x86_64.rpm"
-                  ]
-               }
-            ]
-         }
-      },
-      "redos" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/redos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64"
-                  ],
-                  "version" : "9.6.7.1",
+                  "version" : "9.6.8.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
                   "packages" : [
                      "libzstd-1.1.0-1.el7.x86_64.rpm",
                      "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
@@ -95,21 +25,200 @@
                      "pgbadger-9.2-1.el7.noarch.rpm",
                      "pgbouncer-1.7.2-1.el7.x86_64.rpm",
                      "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-debuginfo-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-debuginfo-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el7.x86_64.rpm",
                      "zstd-1.1.0-1.el7.x86_64.rpm",
                      "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
+                  ],
+                  "product" : "PostgresPro Enterprise"
+               }
+            ]
+         }
+      },
+      "redos" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "libzstd-1.1.0-1.el7.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
+                     "mamonsu-2.3.3-1.el7.noarch.rpm",
+                     "pg_repack96-1.3.4-1.el7.x86_64.rpm",
+                     "pg_repack96-debuginfo-1.3.4-1.el7.x86_64.rpm",
+                     "pgbadger-9.2-1.el7.noarch.rpm",
+                     "pgbouncer-1.7.2-1.el7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-debuginfo-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el7.x86_64.rpm",
+                     "zstd-1.1.0-1.el7.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
+                  "version" : "9.6.8.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/redos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise"
+               }
+            ]
+         }
+      },
+      "oraclelinux" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "packages" : [
+                     "libzstd-1.1.0-1.el7.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
+                     "mamonsu-2.3.3-1.el7.noarch.rpm",
+                     "pg_repack96-1.3.4-1.el7.x86_64.rpm",
+                     "pg_repack96-debuginfo-1.3.4-1.el7.x86_64.rpm",
+                     "pgbadger-9.2-1.el7.noarch.rpm",
+                     "pgbouncer-1.7.2-1.el7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-debuginfo-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el7.x86_64.rpm",
+                     "zstd-1.1.0-1.el7.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
+                  ],
+                  "version" : "9.6.8.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/oraclelinux/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "goslinux" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "libzstd-1.1.0-1.el7.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
+                     "mamonsu-2.3.3-1.el7.noarch.rpm",
+                     "pg_repack96-1.3.4-1.el7.x86_64.rpm",
+                     "pg_repack96-debuginfo-1.3.4-1.el7.x86_64.rpm",
+                     "pgbadger-9.2-1.el7.noarch.rpm",
+                     "pgbouncer-1.7.2-1.el7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-debuginfo-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el7.x86_64.rpm",
+                     "zstd-1.1.0-1.el7.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64.rpm",
+                  "version" : "9.6.8.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/goslinux/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el7.x86_64"
+                  ],
+                  "product" : "PostgresPro Enterprise"
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "9.6.8.1",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el6.x86_64"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el6.x86_64.rpm",
+                  "packages" : [
+                     "libzstd-1.1.0-1.el6.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
+                     "mamonsu-2.3.3-1.el6.noarch.rpm",
+                     "pg_repack96-1.3.4-1.el6.x86_64.rpm",
+                     "pgbadger-9.2-1.el6.noarch.rpm",
+                     "pgbouncer-1.7.2-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el6.x86_64.rpm",
+                     "zstd-1.1.0-1.el6.x86_64.rpm"
                   ]
                }
             ]
@@ -119,20 +228,20 @@
          "8" : {
             "x86_64" : [
                {
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-9.6_9.6.7.1-1.jessie.pro_amd64.deb",
-                  "version" : "9.6.7.1",
                   "packages" : [
-                     "postgrespro-9.6_9.6.7.1-1.jessie.pro_amd64.deb"
+                     "postgrespro-9.6_9.6.8.1-1.jessie.pro_amd64.deb"
                   ],
+                  "package" : "postgrespro-9.6_9.6.8.1-1.jessie.pro_amd64.deb",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/debian/ jessie main > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo deb http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/debian/ jessie main > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-9.6"
-                  ]
+                  ],
+                  "version" : "9.6.8.1",
+                  "product" : "PostgresPro Enterprise"
                }
             ]
          }
@@ -141,175 +250,103 @@
          "8" : {
             "x86_64" : [
                {
+                  "product" : "PostgresPro Enterprise",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.8.1-alt1.x86_64.rpm",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y curl gnupg2",
                      "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/alt-sp/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/alt-sp/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/alt-sp/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/alt-sp/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-enterprise9.6-server"
                   ],
-                  "version" : "9.6.7.1",
+                  "version" : "9.6.8.1",
                   "packages" : [
-                     "postgrespro-enterprise9.6-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-contrib-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-contrib-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-static-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-perl-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-perl-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-pg_probackup-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-pg_probackup-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-python-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-python-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-server-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-server-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-tcl-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-tcl-debuginfo-9.6.7.1-alt1.x86_64.rpm"
-                  ],
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise9.6-server-9.6.7.1-alt1.x86_64.rpm"
-               }
-            ]
-         }
-      },
-      "altlinux-spt" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-enterprise9.6-server-9.6.7.1-alt1.x86_64.rpm",
-                  "product" : "PostgresPro Enterprise",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-enterprise9.6-server"
-                  ],
-                  "packages" : [
-                     "postgrespro-enterprise9.6-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-contrib-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-contrib-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-static-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-perl-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-perl-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-pg_probackup-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-pg_probackup-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-python-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-python-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-server-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-server-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-tcl-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-tcl-debuginfo-9.6.7.1-alt1.x86_64.rpm"
-                  ],
-                  "version" : "9.6.7.1"
-               }
-            ]
-         },
-         "6" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise9.6-server-9.6.7.1-alt1.x86_64.rpm",
-                  "version" : "9.6.7.1",
-                  "packages" : [
-                     "postgrespro-enterprise9.6-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-contrib-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-contrib-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-devel-static-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-perl-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-perl-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-pg_probackup-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-pg_probackup-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-python-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-python-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-server-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-server-debuginfo-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-tcl-9.6.7.1-alt1.x86_64.rpm",
-                     "postgrespro-enterprise9.6-tcl-debuginfo-9.6.7.1-alt1.x86_64.rpm"
-                  ],
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-enterprise9.6-server"
+                     "postgrespro-enterprise9.6-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-contrib-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-contrib-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-static-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-perl-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-perl-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-pg_probackup-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-pg_probackup-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-python-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-python-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-server-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-server-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-tcl-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-tcl-debuginfo-9.6.8.1-alt1.x86_64.rpm"
                   ]
                }
             ]
          }
       },
-      "goslinux" : {
+      "rosa-sx" : {
          "7" : {
             "x86_64" : [
                {
+                  "product" : "PostgresPro Enterprise",
+                  "packages" : [
+                     "libzstd-1.1.0-1.res7.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.res7.x86_64.rpm",
+                     "mamonsu-2.3.3-1.res7.noarch.rpm",
+                     "pg_repack96-1.3.4-1.res7.x86_64.rpm",
+                     "pg_repack96-debuginfo-1.3.4-1.res7.x86_64.rpm",
+                     "pgbadger-9.2-1.res7.noarch.rpm",
+                     "pgbouncer-1.7.2-1.res7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.7.2-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-debuginfo-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.res7.x86_64.rpm",
+                     "zstd-1.1.0-1.res7.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.res7.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.res7.x86_64.rpm",
+                  "version" : "9.6.8.1",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/goslinux/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/rosa-sx/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64"
-                  ],
-                  "packages" : [
-                     "libzstd-1.1.0-1.el7.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
-                     "mamonsu-2.3.3-1.el7.noarch.rpm",
-                     "pg_repack96-1.3.4-1.el7.x86_64.rpm",
-                     "pg_repack96-debuginfo-1.3.4-1.el7.x86_64.rpm",
-                     "pgbadger-9.2-1.el7.noarch.rpm",
-                     "pgbouncer-1.7.2-1.el7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-debuginfo-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el7.x86_64.rpm",
-                     "zstd-1.1.0-1.el7.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
-                  ],
-                  "version" : "9.6.7.1",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                  "product" : "PostgresPro Enterprise"
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.res7.x86_64"
+                  ]
                }
             ]
-         },
-         "6" : {
+         }
+      },
+      "msvsphere" : {
+         "6.3" : {
             "x86_64" : [
                {
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el6.x86_64.rpm",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/msvsphere/6.3Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el6.x86_64"
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el6.x86_64"
                   ],
+                  "version" : "9.6.8.1",
                   "packages" : [
                      "libzstd-1.1.0-1.el6.x86_64.rpm",
                      "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
@@ -317,22 +354,42 @@
                      "pg_repack96-1.3.4-1.el6.x86_64.rpm",
                      "pgbadger-9.2-1.el6.noarch.rpm",
                      "pgbouncer-1.7.2-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el6.x86_64.rpm",
                      "zstd-1.1.0-1.el6.x86_64.rpm"
                   ],
-                  "version" : "9.6.7.1",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el6.x86_64.rpm",
+                  "product" : "PostgresPro Enterprise"
+               }
+            ]
+         }
+      },
+      "astra-smolensk" : {
+         "1.5" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-9.6_9.6.8.1-1.smolensk.pro_amd64.deb"
+                  ],
+                  "package" : "postgrespro-9.6_9.6.8.1-1.smolensk.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.6"
+                  ],
+                  "version" : "9.6.8.1",
                   "product" : "PostgresPro Enterprise"
                }
             ]
@@ -343,18 +400,18 @@
             "x86_64" : [
                {
                   "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el7.centos.x86_64.rpm",
+                  "version" : "9.6.8.1",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
+                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el7.centos.x86_64"
+                     "yum install -y postgrespro-enterprise96-server-9.6.8.1-1.el7.centos.x86_64"
                   ],
-                  "version" : "9.6.7.1",
+                  "package" : "postgrespro-enterprise96-server-9.6.8.1-1.el7.centos.x86_64.rpm",
                   "packages" : [
                      "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
                      "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
@@ -364,19 +421,19 @@
                      "pgbadger-9.2-1.el7.centos.noarch.rpm",
                      "pgbouncer-1.7.2-1.el7.centos.x86_64.rpm",
                      "pgbouncer-debuginfo-1.7.2-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-debuginfo-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-contrib-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-debuginfo-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-devel-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-docs-ru-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-libs-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-pg_probackup-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-plperl-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-plpython-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-pltcl-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-server-9.6.8.1-1.el7.centos.x86_64.rpm",
+                     "postgrespro-enterprise96-test-9.6.8.1-1.el7.centos.x86_64.rpm",
                      "zstd-1.1.0-1.el7.centos.x86_64.rpm",
                      "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
                   ]
@@ -384,140 +441,83 @@
             ]
          }
       },
-      "rhel" : {
+      "altlinux-spt" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-enterprise9.6-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-contrib-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-contrib-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-static-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-perl-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-perl-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-pg_probackup-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-pg_probackup-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-python-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-python-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-server-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-server-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-tcl-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-tcl-debuginfo-9.6.8.1-alt1.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro-enterprise9.6-server-9.6.8.1-alt1.x86_64.rpm",
+                  "version" : "9.6.8.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
+                  ],
+                  "product" : "PostgresPro Enterprise"
+               }
+            ]
+         },
          "7" : {
             "x86_64" : [
                {
                   "product" : "PostgresPro Enterprise",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
+                  "version" : "9.6.8.1",
                   "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64"
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.8.1/repo/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-enterprise9.6-server"
                   ],
-                  "version" : "9.6.7.1",
+                  "package" : "postgrespro-enterprise9.6-server-9.6.8.1-alt1.x86_64.rpm",
                   "packages" : [
-                     "libzstd-1.1.0-1.el7.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
-                     "mamonsu-2.3.3-1.el7.noarch.rpm",
-                     "pg_repack96-1.3.4-1.el7.x86_64.rpm",
-                     "pg_repack96-debuginfo-1.3.4-1.el7.x86_64.rpm",
-                     "pgbadger-9.2-1.el7.noarch.rpm",
-                     "pgbouncer-1.7.2-1.el7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-debuginfo-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el7.x86_64.rpm",
-                     "zstd-1.1.0-1.el7.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
+                     "postgrespro-enterprise9.6-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-contrib-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-contrib-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-devel-static-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-perl-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-perl-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-pg_probackup-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-pg_probackup-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-python-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-python-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-server-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-server-debuginfo-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-tcl-9.6.8.1-alt1.x86_64.rpm",
+                     "postgrespro-enterprise9.6-tcl-debuginfo-9.6.8.1-alt1.x86_64.rpm"
                   ]
                }
             ]
          }
-      },
-      "msvsphere" : {
-         "6.3" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/msvsphere/6.3Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el6.x86_64"
-                  ],
-                  "packages" : [
-                     "libzstd-1.1.0-1.el6.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
-                     "mamonsu-2.3.3-1.el6.noarch.rpm",
-                     "pg_repack96-1.3.4-1.el6.x86_64.rpm",
-                     "pgbadger-9.2-1.el6.noarch.rpm",
-                     "pgbouncer-1.7.2-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el6.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el6.x86_64.rpm",
-                     "zstd-1.1.0-1.el6.x86_64.rpm"
-                  ],
-                  "version" : "9.6.7.1",
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el6.x86_64.rpm",
-                  "product" : "PostgresPro Enterprise"
-               }
-            ]
-         }
-      },
-      "oraclelinux" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "libzstd-1.1.0-1.el7.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el7.x86_64.rpm",
-                     "mamonsu-2.3.3-1.el7.noarch.rpm",
-                     "pg_repack96-1.3.4-1.el7.x86_64.rpm",
-                     "pg_repack96-debuginfo-1.3.4-1.el7.x86_64.rpm",
-                     "pgbadger-9.2-1.el7.noarch.rpm",
-                     "pgbouncer-1.7.2-1.el7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.7.2-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-contrib-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-debuginfo-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-devel-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-docs-ru-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-libs-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pg_probackup-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plperl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-plpython-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-pltcl-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                     "postgrespro-enterprise96-test-9.6.7.1-1.el7.x86_64.rpm",
-                     "zstd-1.1.0-1.el7.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el7.x86_64.rpm"
-                  ],
-                  "version" : "9.6.7.1",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-ent] > /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo name=Postgres Pro Enterprise repo >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo baseurl=http://localrepo.l.postgrespro.ru/cert/pgpro-ent-9.6.7.1/repo/oraclelinux/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64"
-                  ],
-                  "package" : "postgrespro-enterprise96-server-9.6.7.1-1.el7.x86_64.rpm",
-                  "product" : "PostgresPro Enterprise"
-               }
-            ]
-         }
       }
-   }
+   },
+   "windows" : {}
 }
 
