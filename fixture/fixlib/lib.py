@@ -119,7 +119,7 @@ class Lib_helper:
 
             pg_time= pg_time+1
             time.sleep(1)
-            if pg_time>400:
+            if pg_time>800:
                 print('Failed not received IP address ')
                 exit(1)
 
@@ -128,7 +128,7 @@ class Lib_helper:
     def clone_image (app, clone_name, name_image, conn):
 
         num = 1
-        while num<60:
+        while num<200:
             try:
                 os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone' \
                      % (name_image, clone_name))
