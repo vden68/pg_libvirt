@@ -77,6 +77,8 @@ class Lib_helper:
                         +'--'+str(now)[5:10].replace('-','') + '--'+str(number_clone)
 
             check_name=app.domain_check_for_availability(check_domain='yes--'+clone_mame, conn=conn)
+            if check_name is None:
+                check_name=app.domain_check_for_availability(check_domain='mmts_node1--'+clone_mame, conn=conn)
             number_clone = number_clone +1
 
         print('\n original_name=', pgl_kvm.name_sourse_image, clone_mame)

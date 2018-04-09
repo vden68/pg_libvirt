@@ -2,6 +2,7 @@
 __author__ = 'vden'
 import os
 import pytest
+import time
 from fixture.fixlib.lib import Lib_helper
 
 class Image_helper:
@@ -10,27 +11,29 @@ class Image_helper:
         self.flib = Lib_helper(self)
 
 
-    def clone_an_image(self):
+    def clone_an_image(self, image=None, clone_name=None):
 
         with pytest.allure.step('Подключаемся к KVM'):
             conn_open_kvm = self.flib.connection_open()
 
-        with pytest.allure.step('Проверяем на наличие образ %s' % self.app.pgl_kvm.name_sourse_image):
-            lib_domain = self.flib.domain_check_for_availability(check_domain=self.app.pgl_kvm.name_sourse_image,
+        with pytest.allure.step('Проверяем на наличие образ %s' % image):
+            lib_domain = self.flib.domain_check_for_availability(check_domain=image, # self.app.pgl_kvm.name_sourse_image,
                                                                  conn=conn_open_kvm)
         if lib_domain is None:
-            print('Cannot find image %s to be clone.' %self.app.pgl_kvm.name_sourse_image)
+            print('Cannot find image %s to be clone.' %image ) # self.app.pgl_kvm.name_sourse_image)
             exit(0)
 
         #if the domain is enabled we finish work domain
         if lib_domain.ID() != -1:
             self.flib.domain_shutdown_name(conn=conn_open_kvm, lib_name=lib_domain.name())
 
-        with pytest.allure.step('Формируем название новой виртуальной машины'):
-            clone_name = self.flib.create_clone_name(pgl_kvm=self.app.pgl_kvm, conn=conn_open_kvm)
+        if clone_name is None:
+            with pytest.allure.step('Формируем название новой виртуальной машины'):
+                clone_name = self.flib.create_clone_name(pgl_kvm=self.app.pgl_kvm, conn=conn_open_kvm)
 
         with pytest.allure.step('Клонируем образ %s в новый клон %s' %(self.app.pgl_kvm.name_sourse_image, clone_name)):
-            self.flib.clone_image(clone_name=clone_name, name_image=self.app.pgl_kvm.name_sourse_image, conn=conn_open_kvm)
+            self.flib.clone_image(clone_name=clone_name, name_image=image , conn=conn_open_kvm)
+            #self.app.pgl_kvm.name_sourse_image, conn=conn_open_kvm)
 
         conn_open_kvm.close()
 
@@ -112,7 +115,8 @@ class Image_helper:
             #print(list_image.name())
 
             split_image = list_image.name().split('--')
-            if len(split_image) > 7 and (split_image[0] == 'yes'):
+            if len(split_image) > 7 and (split_image[0] == 'yes' or split_image[0] == 'mmts_node1'
+                                         or split_image[0] == 'mmts_node2'or split_image[0] == 'mmts_node3'):
                 print('.....', list_image.name())
                 #print(split_image[0])
                 list_yes.append(list_image.name())
@@ -180,6 +184,25 @@ class Image_helper:
         #print('list_ready_images=', list_ready_images)
 
         return list_ready_images
+
+    def creating_nodes(self, clone_name):
+
+        mmts_node1 = 'mmts_node1--' + clone_name
+        mmts_node2 = 'mmts_node2--' + clone_name
+        mmts_node3 = 'mmts_node3--' + clone_name
+
+        with pytest.allure.step('Переименовываем виртуальную машину %s в %s' % (clone_name, mmts_node1)):
+            self.rename_image(name_image=clone_name, name_image_new=mmts_node1)
+
+        time.sleep(2)
+        with pytest.allure.step('Клонирование образа %s ' % mmts_node1):
+            self.clone_an_image(image=mmts_node1, clone_name=mmts_node2)
+
+        time.sleep(2)
+        with pytest.allure.step('Клонирование образа %s ' % mmts_node1):
+            self.clone_an_image(image=mmts_node1, clone_name=mmts_node3)
+
+
 
 
 

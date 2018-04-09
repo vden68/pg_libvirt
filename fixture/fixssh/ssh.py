@@ -24,7 +24,7 @@ class Sshh_helper:
         pg_time = 0
         while ifaces is None:
             try:
-                self.client.connect(args.ip, username=args.username, password=args.password,look_for_keys=False)
+                self.client.connect(args.ip, username=args.username, password=args.password, look_for_keys=False)
                 ifaces = 1
             except:
                 ifaces = None
