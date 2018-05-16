@@ -1,9 +1,10 @@
 {
   "pgl_kvm":{
-    "name_sourse_image": "linux--centos--6--x86_64",
-    "prefix": "pgproee",
-    "number_test_set": "9.6-beta",
-    "path_meta_json":"/PostgresPro/ee/9.6-beta/meta.json"
+    "name_source_image": "linux--debian--7--x86_64",
+    "prefix": "pgpro",
+    "number_test_set": "9.6",
+    "path_meta_json":"/PostgresPro/Standard/pgpro-9.6/meta.json",
+    "path_arch_meta_json":"/PostgresPro/Standard/pgpro-9.6/meta.json"
   },
   "pgl_ssh":{
     "ip": "None",
