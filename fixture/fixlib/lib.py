@@ -68,12 +68,12 @@ class Lib_helper:
 
     def create_clone_name(app, pgl_kvm, conn):
 
-        check_name = pgl_kvm.name_sourse_image
+        check_name = pgl_kvm.name_source_image
         number_clone = 0
 
         while check_name is not None:
             now = datetime.today()
-            clone_mame= pgl_kvm.name_sourse_image+'--'+pgl_kvm.prefix+'--'+pgl_kvm.number_test_set\
+            clone_mame= pgl_kvm.name_source_image+'--'+pgl_kvm.prefix+'--'+pgl_kvm.number_test_set\
                         +'--'+str(now)[5:10].replace('-','') + '--'+str(number_clone)
 
             check_name=app.domain_check_for_availability(check_domain='yes--'+clone_mame, conn=conn)
@@ -81,7 +81,7 @@ class Lib_helper:
                 check_name=app.domain_check_for_availability(check_domain='mmts_node1--'+clone_mame, conn=conn)
             number_clone = number_clone +1
 
-        print('\n original_name=', pgl_kvm.name_sourse_image, clone_mame)
+        print('\n original_name=', pgl_kvm.name_source_image, clone_mame)
         return clone_mame
 
 

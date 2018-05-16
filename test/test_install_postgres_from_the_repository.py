@@ -7,8 +7,8 @@ import time
 @pytest.allure.step('Установка Postgres из репозитория')
 def test_install_postgres_from_the_repository(app):
 
-    with pytest.allure.step('Клонирование образа %s ' % app.pgl_kvm.name_sourse_image):
-        clone_name = app.img.clone_an_image(image=app.pgl_kvm.name_sourse_image, clone_name=None)
+    with pytest.allure.step('Клонирование образа %s ' % app.pgl_kvm.name_source_image):
+        clone_name = app.img.clone_an_image(image=app.pgl_kvm.name_source_image, clone_name=None)
 
     with pytest.allure.step('Стартуем виртуальную машину %s' % clone_name):
         st_domain= app.img.start_image(name_image= clone_name)

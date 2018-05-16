@@ -46,7 +46,7 @@ def app(request):
 
     if target is None:
         pgl_kvm_config= load_config(request.config.getoption("--target"))["pgl_kvm"]
-        pgl_kvm= Pgl_kvm(name_sourse_image=pgl_kvm_config["name_sourse_image"],
+        pgl_kvm= Pgl_kvm(name_source_image=pgl_kvm_config["name_source_image"],
                          prefix=pgl_kvm_config["prefix"],
                          number_test_set=pgl_kvm_config["number_test_set"],
                          path_meta_json=pgl_kvm_config['path_meta_json'])

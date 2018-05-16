@@ -31,7 +31,7 @@ class Image_helper:
             with pytest.allure.step('Формируем название новой виртуальной машины'):
                 clone_name = self.flib.create_clone_name(pgl_kvm=self.app.pgl_kvm, conn=conn_open_kvm)
 
-        with pytest.allure.step('Клонируем образ %s в новый клон %s' %(self.app.pgl_kvm.name_sourse_image, clone_name)):
+        with pytest.allure.step('Клонируем образ %s в новый клон %s' %(self.app.pgl_kvm.name_source_image, clone_name)):
             self.flib.clone_image(clone_name=clone_name, name_image=image , conn=conn_open_kvm)
             #self.app.pgl_kvm.name_sourse_image, conn=conn_open_kvm)
 

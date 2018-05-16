@@ -30,7 +30,7 @@ class Ssh_helper:
                 repo = json.load(f)
 
 
-        split_name= self.app.pgl_kvm.name_sourse_image.split('--')
+        split_name= self.app.pgl_kvm.name_source_image.split('--')
 
         steps_system= repo[split_name[0]][split_name[1]][split_name[2]][split_name[3]]
 
