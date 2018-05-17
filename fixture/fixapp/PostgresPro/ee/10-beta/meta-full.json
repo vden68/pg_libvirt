@@ -368,6 +368,40 @@
                   ]
                }
             ]
+         },
+         "16.04" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-ent-10-client_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-contrib_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-dev_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-docs-ru_10.4.1-1.xenial_all.deb",
+                     "postgrespro-ent-10-docs_10.4.1-1.xenial_all.deb",
+                     "postgrespro-ent-10-libs_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-pgprobackup_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-plperl_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-plpython3_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-plpython_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-pltcl_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10-server_10.4.1-1.xenial_amd64.deb",
+                     "postgrespro-ent-10_10.4.1-1.xenial_amd64.deb"
+                  ],
+                  "package" : "postgrespro-ent-10-server_10.4.1-1.xenial_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgproee-10-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-ent-10-server",
+                     "/opt/pgpro/ent-10/bin/pg-setup initdb",
+                     "service postgrespro-ent-10 start"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "version" : "10.4.1"
+               }
+            ]
          }
       },
       "centos" : {
