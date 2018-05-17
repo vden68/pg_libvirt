@@ -99,6 +99,42 @@
                   "product" : "PostgresPro Enterprise"
                }
             ]
+         },
+         "18.04" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Enterprise",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru/pgproee-9.6-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro*"
+                  ],
+                  "package" : "postgrespro-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                  "packages" : [
+                     "libecpg-compat3_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "libecpg-dev_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "libecpg6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "libpgtypes3_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "libpq-dev_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "libpq5_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-client-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-contrib-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-doc-9.6_9.6.9.1-1.bionic.pro_all.deb",
+                     "postgrespro-doc-ru-9.6_9.6.9.1-1.bionic.pro_all.deb",
+                     "postgrespro-pg-probackup-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-plperl-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-plpython-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-plpython3-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-pltcl-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-server-dev-9.6_9.6.9.1-1.bionic.pro_amd64.deb"
+                  ],
+                  "version" : "9.6.9.1"
+               }
+            ]
          }
       },
       "altlinux-spt" : {
