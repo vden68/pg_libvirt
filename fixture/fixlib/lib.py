@@ -79,6 +79,8 @@ class Lib_helper:
             check_name=app.domain_check_for_availability(check_domain='yes--'+clone_mame, conn=conn)
             if check_name is None:
                 check_name=app.domain_check_for_availability(check_domain='mmts_node1--'+clone_mame, conn=conn)
+            if check_name is None:
+                check_name=app.domain_check_for_availability(check_domain='quick--'+clone_mame, conn=conn)
             number_clone = number_clone +1
 
         print('\n original_name=', pgl_kvm.name_source_image, clone_mame)

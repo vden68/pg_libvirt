@@ -3,6 +3,7 @@ __author__ = 'vden'
 import os.path
 import json
 import pytest
+import time
 from fixture.fixssh.ssh import Sshh_helper
 
 repo = None
@@ -15,7 +16,7 @@ class Ssh_helper:
         self.sshh= Sshh_helper(self)
 
 
-    def connection_to_the_domain_by_ssh(self, domain):
+    def install_postgrespro(self, domain=None, quick_install_mode=False, shutdown=True):
 
         print('\n',domain.name(), domain.UUIDString(), domain.ID(), domain.IP)
 
@@ -46,11 +47,13 @@ class Ssh_helper:
             with pytest.allure.step('Выполняем install из meta.json' ):
                 for step in steps:
                     print('\nstep=', step)
-                    with pytest.allure.step('step= sudo sh -c %s ' % step):
-                        list_step=self.sshh.do_run(command="sudo sh -c '"+step+"'")  #sudo sh -c
-                        for l_step in list_step:
-                            with pytest.allure.step('. %s' % l_step):
-                                pass
+                    if step.find("install -y postgrespro")>0 and quick_install_mode:
+                        #pass
+                        step2=step[:step.find("10")+2]
+                        print('\nstep=', step2)
+                        self.step_sudo(step2)
+                        break
+                    self.step_sudo(step)
 
 
 
@@ -62,11 +65,19 @@ class Ssh_helper:
             self.checking_installed_packages(steps)
             print(steps)
 
-        with pytest.allure.step('Выключаем ВМ'):
-            self.sshh.do_run(command="sudo shutdown +1 -h")
+        if shutdown:
+            with pytest.allure.step('Выключаем ВМ'):
+                self.sshh.do_run(command="sudo shutdown +1 -h")
+            time.sleep(200)
 
         self.sshh.do_close()
 
+    def step_sudo(self, step):
+        with pytest.allure.step('step= sudo sh -c %s ' % step):
+            list_step = self.sshh.do_run(command="sudo sh -c '" + step + "'")  # sudo sh -c
+            for l_step in list_step:
+                with pytest.allure.step('. %s' % l_step):
+                    pass
 
     def checking_installed_packages(self, steps):
 
