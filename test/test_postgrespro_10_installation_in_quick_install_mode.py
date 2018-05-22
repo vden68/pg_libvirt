@@ -14,7 +14,7 @@ def test_postgrespro_10_installation_in_quick_install_mode(app):
 
     app.pgl_ssh.ip= st_domain.IP
 
-    with pytest.allure.step('Устанавливаем Postgres'):
+    with pytest.allure.step('Install Postgres'):
         app.sh.install_postgrespro(domain=st_domain, quick_install_mode=True)
 
     clone_name_new= 'quick--'+clone_name
