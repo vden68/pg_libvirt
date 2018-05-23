@@ -5,11 +5,16 @@ import pytest
 
 from model.pgl_kvm import Pgl_kvm
 from model.pgl_ssh import Pgl_ssh
+from model.conn_mmts import Conn_mmts
+from model.mmts_data import Mmts_data
 
 from fixture.application import Application
+from fixture.mmts import Mmts
 
 fixture = None
+mmts_fixture = None
 target = None
+target_mmts = None
 
 
 def load_config(file):
@@ -65,6 +70,42 @@ def app(request):
     return fixture
 
 
+@pytest.fixture(scope = 'session')
+def mmts(request):
+    global mmts_fixture
+    global target_mmts
+
+    if target_mmts is None:
+        conn_mmts_config = load_config(request.config.getoption("--target_mmts"))["conn_mmts"]
+        conn_mmts = Conn_mmts(dbname=conn_mmts_config["dbname"], user=conn_mmts_config["user"],
+                              password=conn_mmts_config["password"], conn_strings=conn_mmts_config["conn_strings"],
+                              max_nodes=conn_mmts_config["max_nodes"], arbiter_port=conn_mmts_config["arbiter_port"],
+                              heartbeat_send_timeout=conn_mmts_config["heartbeat_send_timeout"],
+                              heartbeat_recv_timeout=conn_mmts_config["heartbeat_recv_timeout"],
+                              min_recovery_lag=conn_mmts_config["min_recovery_lag"],
+                              max_recovery_lag=conn_mmts_config["max_recovery_lag"],
+                              ignore_tables_without_pk=conn_mmts_config["ignore_tables_without_pk"],
+                              cluster_name=conn_mmts_config["cluster_name"],
+                              referee_connstring=conn_mmts_config["referee_connstring"],
+                              monotonic_sequences=conn_mmts_config["monotonic_sequences"])
+
+        mmts_data_config = load_config(request.config.getoption("--target_mmts"))["mmts_data"]
+        mmts_data=[]
+        for mmts_data_c in mmts_data_config:
+            mmts_data.append(Mmts_data(images=mmts_data_c["images"], images_ip=mmts_data_c["images_ip"],
+                                       host=mmts_data_c["host"], node_id=mmts_data_c["node_id"],
+                                       break_connection=mmts_data_c["break_connection"], major_node=mmts_data_c["major_node"],
+                                       max_workers=mmts_data_c["max_workers"], trans_spill_threshold=mmts_data_c["trans_spill_threshold"]))
+
+
+    if mmts_fixture is None :
+        mmts_fixture = Mmts(conn_mmts, mmts_data)
+
+    request.addfinalizer(mmts_fixture.destroy)
+    return mmts_fixture
+
+
 
 def pytest_addoption(parser):
     parser.addoption("--target", action="store", default="target.json")
+    parser.addoption("--target_mmts", action="store", default="target_mmts.json")

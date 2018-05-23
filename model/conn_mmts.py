@@ -3,7 +3,7 @@ __author__ = 'vden'
 class Conn_mmts:
 
     def __init__(self, dbname=None, user=None, password=None, conn_strings=None, max_nodes=None,
-                 arbiter_port=5433, heartbeat_send_timeout=1000, heartbeat_recv_timeout=10000, min_recovery_lag="10MB",
+                 arbiter_port="5433", heartbeat_send_timeout="1000", heartbeat_recv_timeout="10000", min_recovery_lag="10MB",
                  max_recovery_lag= "1GB", ignore_tables_without_pk= None, cluster_name= None, referee_connstring=None,
                  monotonic_sequences=False):
         self.dbname = dbname
