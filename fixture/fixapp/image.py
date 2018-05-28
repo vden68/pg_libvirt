@@ -13,12 +13,9 @@ class Image_helper:
 
     def clone_an_image(self, image=None, clone_name=None):
 
-        with pytest.allure.step('Подключаемся к KVM'):
-            conn_open_kvm = self.flib.connection_open()
+        conn_open_kvm = self.conn_open_kvm2()
 
-        with pytest.allure.step('Проверяем на наличие образ %s' % image):
-            lib_domain = self.flib.domain_check_for_availability(check_domain=image, # self.app.pgl_kvm.name_sourse_image,
-                                                                 conn=conn_open_kvm)
+        lib_domain = self.check_for_availability(conn_open_kvm, image)
         if lib_domain is None:
             print('Cannot find image %s to be clone.' %image ) # self.app.pgl_kvm.name_sourse_image)
             exit(0)
@@ -39,6 +36,17 @@ class Image_helper:
 
         return clone_name
 
+    def check_for_availability(self, conn_open_kvm, image):
+        with pytest.allure.step('Проверяем на наличие образ %s' % image):
+            lib_domain = self.flib.domain_check_for_availability(check_domain=image,
+                                                                 # self.app.pgl_kvm.name_sourse_image,
+                                                                 conn=conn_open_kvm)
+        return lib_domain
+
+    def conn_open_kvm2(self):
+        with pytest.allure.step('Подключаемся к KVM'):
+            conn_open_kvm = self.flib.connection_open()
+        return conn_open_kvm
 
     def start_image(self, name_image):
 

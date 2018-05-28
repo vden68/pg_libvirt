@@ -17,13 +17,23 @@ target = None
 target_mmts = None
 
 
-def load_config(file):
+def load_target(file):
     global target
     if target is None:
         config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), file)
         with open(config_file) as f:
             target = json.load(f)
     return target
+
+
+def load_target_mmts(file):
+    global target_mmts
+    if target_mmts is None:
+        config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), file)
+        with open(config_file) as f:
+            target_mmts = json.load(f)
+    return target_mmts
+
 
 def reading_parameters_from_jenkins(jen_param=None):
 
@@ -50,7 +60,7 @@ def app(request):
     global target
 
     if target is None:
-        pgl_kvm_config= load_config(request.config.getoption("--target"))["pgl_kvm"]
+        pgl_kvm_config= load_target(request.config.getoption("--target"))["pgl_kvm"]
         pgl_kvm= Pgl_kvm(name_source_image=pgl_kvm_config["name_source_image"],
                          prefix=pgl_kvm_config["prefix"],
                          number_test_set=pgl_kvm_config["number_test_set"],
@@ -58,7 +68,7 @@ def app(request):
 
         pgl_kvm= reading_parameters_from_jenkins(jen_param=pgl_kvm)
 
-        pgl_ssh_config= load_config(request.config.getoption("--target"))["pgl_ssh"]
+        pgl_ssh_config= load_target(request.config.getoption("--target"))["pgl_ssh"]
         pgl_ssh= Pgl_ssh(ip=pgl_ssh_config["ip"], username=pgl_ssh_config["username"],
                          password=pgl_ssh_config["password"], password_root=pgl_ssh_config["password_root"])
 
@@ -76,7 +86,7 @@ def mmts(request):
     global target_mmts
 
     if target_mmts is None:
-        conn_mmts_config = load_config(request.config.getoption("--target_mmts"))["conn_mmts"]
+        conn_mmts_config = load_target_mmts(request.config.getoption("--target_mmts"))["conn_mmts"]
         conn_mmts = Conn_mmts(dbname=conn_mmts_config["dbname"], user=conn_mmts_config["user"],
                               password=conn_mmts_config["password"], conn_strings=conn_mmts_config["conn_strings"],
                               max_nodes=conn_mmts_config["max_nodes"], arbiter_port=conn_mmts_config["arbiter_port"],
@@ -89,7 +99,7 @@ def mmts(request):
                               referee_connstring=conn_mmts_config["referee_connstring"],
                               monotonic_sequences=conn_mmts_config["monotonic_sequences"])
 
-        mmts_data_config = load_config(request.config.getoption("--target_mmts"))["mmts_data"]
+        mmts_data_config = load_target_mmts(request.config.getoption("--target_mmts"))["mmts_data"]
         mmts_data=[]
         for mmts_data_c in mmts_data_config:
             mmts_data.append(Mmts_data(images=mmts_data_c["images"], images_ip=mmts_data_c["images_ip"],

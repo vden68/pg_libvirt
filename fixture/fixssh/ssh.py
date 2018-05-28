@@ -43,7 +43,7 @@ class Sshh_helper:
         list_exec=[]
 
         with pytest.allure.step('Выполняем команду %s' %command):
-            stdin, stdout, stderr = self.client.exec_command(command, timeout=1200)
+            stdin, stdout, stderr = self.client.exec_command(command, timeout=2400)
             time.sleep(10)
             for line in stdout.read().decode('utf8').splitlines():
 

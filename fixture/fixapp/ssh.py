@@ -16,6 +16,16 @@ class Ssh_helper:
         self.sshh= Sshh_helper(self)
 
 
+    def conn_ssh(self, conn_ssh_l):
+        self.sshh.do_connect(args=conn_ssh_l)
+
+    def ssh_do_run(self, command=None):
+        return self.sshh.do_run(command=command)
+
+    def ssh_close(self):
+        self.sshh.do_close()
+
+
     def install_postgrespro(self, domain=None, quick_install_mode=False, shutdown=True):
 
         print('\n',domain.name(), domain.UUIDString(), domain.ID(), domain.IP)
