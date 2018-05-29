@@ -10,6 +10,7 @@ from model.mmts_data import Mmts_data
 
 from fixture.application import Application
 from fixture.mmts import Mmts
+from fixture.ssh_trans import Ssh_trans
 
 fixture = None
 mmts_fixture = None
@@ -113,6 +114,15 @@ def mmts(request):
 
     request.addfinalizer(mmts_fixture.destroy)
     return mmts_fixture
+
+
+@pytest.fixture(scope = 'session')
+def ssh_trans(request):
+    ssh_trans_fixture = Ssh_trans()
+
+    request.addfinalizer(ssh_trans_fixture.destroy)
+    return ssh_trans_fixture
+
 
 
 

@@ -38,25 +38,79 @@ class Create_mmts_helper:
         print(self.mmts.conn_mmts)
 
 
-    def tuning_mmts(self, app=None):
+    def tuning_mmts(self, ssh_trans=None):
         x = 0
         for xm in self.mmts.mmts_data:
-            #conn_ssh_l = Pgl_ssh(ip=xm.images_ip, username=app.pgl_ssh.username, password=app.pgl_ssh.password)
-            conn_ssh_l = Pgl_ssh(ip=xm.images_ip, username="postgres", password="TestPass1")
 
-            print("connect ssh")
-            self.sshh.do_connect(args=conn_ssh_l)
-            print("connect  ssh finish")
+            conn_ssh_str = Pgl_ssh(ip=xm.images_ip, username="test", password="TestPass1")
 
-            self.sshh.do_run(command="psql -c 'select version();' ")
-            #app.sh.conn_ssh(conn_ssh_l)
-            #app.sh.ssh_do_run("sudo su - postgres")
-            #app.sh.ssh_do_run('psql -c "select version();"')
+            # tuning pg_hba.conf
+            ssh_command_str="sudo chmod 777 /var/lib/pgpro/ent-10/data/pg_hba.conf"
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            print(xm)
-            self.sshh.do_close()
-            #app.sh.ssh_close()
-            #exit(1)
+            ssh_command_str="sudo sed -i '$ a host     all        all        0.0.0.0\/0       md5' /var/lib/pgpro/ent-10/data/pg_hba.conf"
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str="sudo sed -i '$ a host     replication        repl        0.0.0.0\/0       trust' /var/lib/pgpro/ent-10/data/pg_hba.conf"
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            # tuning pg_hba.conf
+            ssh_command_str = "sudo chmod 777 /var/lib/pgpro/ent-10/data/postgresql.conf"
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a max_prepared_transactions = 300"  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a max_worker_processes = 250"  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a listen_addresses = \'*\' "  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'multimaster\' "  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = ('sudo sed -i "$ a multimaster.max_nodes = %s "  /var/lib/pgpro/ent-10/data/postgresql.conf' %
+                               (self.mmts.conn_mmts.max_nodes))
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = ('sudo sed -i "$ a multimaster.node_id = %s "  /var/lib/pgpro/ent-10/data/postgresql.conf' %
+                               (xm.node_id))
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = ('sudo sed -i "$ a multimaster.conn_strings = %s "  /var/lib/pgpro/ent-10/data/postgresql.conf' %
+                               (self.mmts.conn_mmts.conn_strings))
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+
+
+            ssh_command_str = 'sudo -H -u postgres psql -c "CREATE USER myuser WITH SUPERUSER ENCRYPTED PASSWORD \'myuserpassword\';"'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER myuser;"'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo pg-setup service stop'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo pg-setup service start'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+        conn_ssh_str = Pgl_ssh(ip=self.mmts.mmts_data[0].images_ip, username="test", password="TestPass1")
+        ssh_command_str = 'sudo -H -u postgres psql -d mydb -c "CREATE EXTENSION multimaster;" '
+        ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+
+
+
+
+
+
+
+
 
 
 

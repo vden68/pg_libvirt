@@ -4,7 +4,7 @@ __author__ = 'vden'
 import pytest
 
 @pytest.allure.step('Установка Мультимастера из репозитория')
-def test_install_multimaster_from_the_repository(app, mmts):
+def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
 
     """
     with pytest.allure.step('Clone an image %s ' % app.pgl_kvm.name_source_image):
@@ -23,13 +23,13 @@ def test_install_multimaster_from_the_repository(app, mmts):
         app.img.rename_image(name_image=clone_name, name_image_new=clone_name_new)
     """
 
-    clone_name_new = "quick--linux--centos--7--x86_64--pgproee--10--0523--1"
+    clone_name_new = "quick--linux--centos--7--x86_64--pgproee--10--0528--1"
 
     with pytest.allure.step('Clone an image %s ' % clone_name_new):
         mmts.create.clone_mmts_image(image=clone_name_new, app=app)
 
     with pytest.allure.step('Tuning mmts '):
-        mmts.create.tuning_mmts(app=app)
+        mmts.create.tuning_mmts(ssh_trans=ssh_trans)
 
 
 
