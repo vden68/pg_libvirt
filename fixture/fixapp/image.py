@@ -124,7 +124,8 @@ class Image_helper:
 
             split_image = list_image.name().split('--')
             if len(split_image) > 7 and (split_image[0] == 'yes' or split_image[0] == 'mmts_node1'
-                                         or split_image[0] == 'mmts_node2'or split_image[0] == 'mmts_node3'):
+                                         or split_image[0] == 'mmts_node2'or split_image[0] == 'mmts_node3'
+                                         or split_image[0] == 'quick'):
                 print('.....', list_image.name())
                 #print(split_image[0])
                 list_yes.append(list_image.name())
