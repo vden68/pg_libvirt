@@ -4,6 +4,7 @@ from fixture.fixapp.image import Image_helper
 from model.pgl_ssh import Pgl_ssh
 
 from fixture.fixssh.ssh import Sshh_helper
+import time
 
 class Create_mmts_helper:
 
@@ -99,6 +100,7 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo pg-setup service start'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
+        time.sleep(20)
         conn_ssh_str = Pgl_ssh(ip=self.mmts.mmts_data[0].images_ip, username="test", password="TestPass1")
         ssh_command_str = 'sudo -H -u postgres psql -d mydb -c "CREATE EXTENSION multimaster;" '
         ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
