@@ -57,7 +57,7 @@ class Ssh_helper:
             with pytest.allure.step('Выполняем install из meta.json' ):
                 for step in steps:
                     print('\nstep=', step)
-                    if step.find("install -y postgrespro")>0 and quick_install_mode:
+                    if step.find("install")>0 and step.find("postgrespro")>0 and quick_install_mode:
                         #pass
                         step2=step[:step.find("10")+2]
                         print('\nstep=', step2)
