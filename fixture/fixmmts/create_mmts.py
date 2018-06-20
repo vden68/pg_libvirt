@@ -62,10 +62,10 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-10/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo sed -i "$ a max_prepared_transactions = 300"  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_command_str = 'sudo sed -i "$ a max_prepared_transactions = 600"  /var/lib/pgpro/ent-10/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo sed -i "$ a max_worker_processes = 250"  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_command_str = 'sudo sed -i "$ a max_worker_processes = 500"  /var/lib/pgpro/ent-10/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo sed -i "$ a listen_addresses = \'*\' "  /var/lib/pgpro/ent-10/data/postgresql.conf'
