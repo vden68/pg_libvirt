@@ -74,7 +74,7 @@ class Lib_helper:
 
         psutil.cpu_percent(interval=1)
         while psutil.cpu_percent(interval=1) > 8:
-            time.sleep(120)
+            time.sleep(180)
             print("psutil.cpu_percent(interval=1)=", psutil.cpu_percent(interval=1))
 
         while check_name is not None:
