@@ -73,8 +73,8 @@ class Lib_helper:
         number_clone = 0
 
         psutil.cpu_percent(interval=1)
-        while psutil.cpu_percent(interval=1) > 10:
-            time.sleep(180)
+        while psutil.cpu_percent(interval=1) > 5:
+            time.sleep(60)
             print("psutil.cpu_percent(interval=1)=", psutil.cpu_percent(interval=1))
 
         while check_name is not None:
