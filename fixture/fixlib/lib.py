@@ -4,6 +4,7 @@ __author__ = 'vden'
 import libvirt
 import time
 import os
+import psutil
 from xml.dom import minidom
 from datetime import datetime
 
@@ -71,6 +72,11 @@ class Lib_helper:
         check_name = pgl_kvm.name_source_image
         number_clone = 0
 
+        psutil.cpu_percent(interval=1)
+        while psutil.cpu_percent(interval=1) > 10:
+            time.sleep(120)
+            print("psutil.cpu_percent(interval=1)=", psutil.cpu_percent(interval=1))
+
         while check_name is not None:
             now = datetime.today()
             clone_mame= pgl_kvm.name_source_image+'--'+pgl_kvm.prefix+'--'+pgl_kvm.number_test_set\
@@ -81,6 +87,8 @@ class Lib_helper:
                 check_name=app.domain_check_for_availability(check_domain='mmts_node1--'+clone_mame, conn=conn)
             if check_name is None:
                 check_name=app.domain_check_for_availability(check_domain='quick--'+clone_mame, conn=conn)
+            if check_name is None:
+                check_name=app.domain_check_for_availability(check_domain=clone_mame, conn=conn)
             number_clone = number_clone +1
 
         print('\n original_name=', pgl_kvm.name_source_image, clone_mame)
@@ -131,6 +139,7 @@ class Lib_helper:
 
     def clone_image (app, clone_name, name_image, conn):
 
+
         num = 1
         while num<200:
             try:
@@ -139,13 +148,13 @@ class Lib_helper:
             except:
                 pass
 
-            time.sleep(2)
+            time.sleep(30)
             check_name = app.domain_check_for_availability(check_domain=clone_name, conn=conn)
             #print('check_name = ', check_name.name())
+            num = num + 1
             if check_name is not None:
                 break
-            num = num+1
-            time.sleep(10)
+
 
     def rename_image(app, name_image, name_image_new, conn):
 
