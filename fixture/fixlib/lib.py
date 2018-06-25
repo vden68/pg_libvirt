@@ -73,9 +73,14 @@ class Lib_helper:
         number_clone = 0
 
         psutil.cpu_percent(interval=1)
+        cpu_p=0
         while psutil.cpu_percent(interval=1) > 3:
             time.sleep(10)
             print("psutil.cpu_percent(interval=1)=", psutil.cpu_percent(interval=1))
+            if cpu_p>300:
+                break
+            cpu_p+=1
+
 
         while check_name is not None:
             now = datetime.today()
