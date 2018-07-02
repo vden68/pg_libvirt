@@ -111,7 +111,7 @@
                      "echo deb http://repo.postgrespro.ru/pgproee-9.6-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
                      "if dpkg -s libpq5 2>/dev/null; then apt-get remove -y libpq5; fi",
-                     "apt-get install -y libpq5=9.6.9.1-1.bionic.pro",
+                     "apt-get install -y libpq5=9.6.9.2-2.bionic.pro",
                      "apt-get install -y postgrespro*"
                   ],
                   "package" : "postgrespro-9.6_9.6.9.1-1.bionic.pro_amd64.deb",
