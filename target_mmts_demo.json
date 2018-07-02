@@ -1,24 +1,70 @@
 {
   "conn_mmts":{
-    "dbname" : "None",
-    "user" : "None",
-    "password" : "None",
-    "conn_strings" : "None",
-    "max_nodes" : "None",
+    "dbname" : "mydb",
+    "user" : "myuser",
+    "password" : "myuserpassword",
+    "conn_strings" : "",
+    "max_nodes" : "5",
     "arbiter_port" : "5433",
     "heartbeat_send_timeout" : "1000",
     "heartbeat_recv_timeout" : "10000",
     "min_recovery_lag" : "10MB",
     "max_recovery_lag" : "1GB",
-    "ignore_tables_without_pk" : "None",
-    "cluster_name" : "None",
-    "referee_connstring" : "None",
+    "ignore_tables_without_pk" : "",
+    "cluster_name" : "",
+    "referee_connstring" : "",
     "monotonic_sequences" : "False"
   },
-  "pgl_ssh":{
-    "ip": "None",
-    "username": "test",
-    "password": "TestPass1",
-    "password_root": "TestRoot1"
+  "mmts_data":[
+    {
+      "images" : "",
+      "images_ip" : "",
+      "host" : "",
+      "node_id" : "1",
+      "break_connection" : "False",
+      "major_node" : "",
+      "max_workers" : "",
+      "trans_spill_threshold" : "100MB"
+  },
+    {
+      "images" : "",
+      "images_ip" : "",
+      "host" : "",
+      "node_id" : "2",
+      "break_connection" : "False",
+      "major_node" : "",
+      "max_workers" : "",
+      "trans_spill_threshold" : "100MB"
+  },
+    {
+      "images" : "",
+      "images_ip" : "",
+      "host" : "",
+      "node_id" : "3",
+      "break_connection" : "False",
+      "major_node" : "",
+      "max_workers" : "",
+      "trans_spill_threshold" : "100MB"
+  },
+    {
+      "images" : "",
+      "images_ip" : "",
+      "host" : "",
+      "node_id" : "4",
+      "break_connection" : "False",
+      "major_node" : "",
+      "max_workers" : "",
+      "trans_spill_threshold" : "100MB"
+  },
+    {
+      "images" : "",
+      "images_ip" : "",
+      "host" : "",
+      "node_id" : "5",
+      "break_connection" : "False",
+      "major_node" : "",
+      "max_workers" : "",
+      "trans_spill_threshold" : "100MB"
   }
+  ]
 }

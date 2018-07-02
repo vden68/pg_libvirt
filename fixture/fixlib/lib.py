@@ -78,6 +78,7 @@ class Lib_helper:
             time.sleep(10)
             print("psutil.cpu_percent(interval=1)=", psutil.cpu_percent(interval=1))
             if cpu_p>300:
+                print("=3000c")
                 break
             cpu_p+=1
 
