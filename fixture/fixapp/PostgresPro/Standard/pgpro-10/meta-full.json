@@ -644,7 +644,7 @@
                      "postgrespro-std-10_10.2.1-1.bionic.pro_amd64.deb"
                   ],
                   "product" : "PostgresPro Standard",
-                  "version" : "10.2.1",
+                  "version" : "10.2.1 ",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
