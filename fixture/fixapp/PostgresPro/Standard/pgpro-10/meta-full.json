@@ -646,12 +646,12 @@
                   "product" : "PostgresPro Standard",
                   "version" : "10.2.1",
                   "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "apt update -y",
+                     "apt install -y wget gnupg2 || apt-get install -y gnupg",
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgpro-10-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro*",
+                     "apt update -y",
+                     "apt install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ]
