@@ -344,7 +344,7 @@
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://localrepo.l.postgrespro.ru/cert/pgpro-std-10.4.1/repo/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo deb http://localrepo.l.postgrespro.ru/cert/pgpro-std-10.4.1/repo/astra-smolensk/1.6/ smolensk main > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-std-10-server",
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
