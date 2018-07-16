@@ -72,6 +72,7 @@ class Lib_helper:
         check_name = pgl_kvm.name_source_image
         number_clone = 0
 
+        """
         psutil.cpu_percent(interval=1)
         cpu_p=0
         while psutil.cpu_percent(interval=1) > 3:
@@ -81,6 +82,7 @@ class Lib_helper:
                 print("=3000c")
                 break
             cpu_p+=1
+        """
 
 
         while check_name is not None:
