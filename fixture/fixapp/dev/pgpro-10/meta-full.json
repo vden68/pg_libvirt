@@ -881,7 +881,7 @@
                      "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
                      "zypper ar http://localrepo.l.postgrespro.ru/dev/pgpro-10/sles/12.1 pgpro-std-10",
                      "zypper refresh",
-                     "zypper install -fy postgrespro*.*",
+                     "zypper install -fy postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ],
