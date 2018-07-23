@@ -101,9 +101,7 @@ class Image_helper:
 
         list_yes = self.get_list_yes(list_images)
 
-        list_del=list_yes
 
-        """
         list_del=[]
         split_equally=None
         for list_y in list_yes:
@@ -113,7 +111,9 @@ class Image_helper:
             else:
                 split_equally=split_yes[0]+split_yes[1]+split_yes[2]+split_yes[3]+split_yes[4]+split_yes[5]+split_yes[6]
 
-        """
+
+        #list_del=list_yes
+
         print('list_del=', list_del)
 
         conn_open_kvm.close()
