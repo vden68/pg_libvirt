@@ -378,7 +378,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://repo.postgrespro.ru/pgproee-10-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro*",
+                     "apt-get install -y postgrespro*.*",
                      "/opt/pgpro/ent-10/bin/pg-setup initdb",
                      "service postgrespro-ent-10 start"
                   ],
