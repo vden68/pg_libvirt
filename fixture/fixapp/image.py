@@ -112,7 +112,7 @@ class Image_helper:
                 split_equally=split_yes[0]+split_yes[1]+split_yes[2]+split_yes[3]+split_yes[4]+split_yes[5]+split_yes[6]
 
 
-        #list_del=list_yes
+        list_del=list_yes
 
         print('list_del=', list_del)
 
