@@ -72,10 +72,11 @@ def app(request):
         pgl_ssh_config= load_target(request.config.getoption("--target"))["pgl_ssh"]
         pgl_ssh= Pgl_ssh(ip=pgl_ssh_config["ip"], username=pgl_ssh_config["username"],
                          password=pgl_ssh_config["password"], password_root=pgl_ssh_config["password_root"])
+        clone_name_list = []
 
 
     if fixture is None :
-        fixture = Application(pgl_kvm, pgl_ssh)
+        fixture = Application(pgl_kvm, pgl_ssh, clone_name_list)
 
     request.addfinalizer(fixture.destroy)
     return fixture

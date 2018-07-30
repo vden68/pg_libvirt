@@ -145,6 +145,16 @@ class Lib_helper:
 
         return lib_domain
 
+    def destroy_image(app, lib_domain, conn):
+
+        dom = conn.lookupByName(lib_domain.name())
+
+        # if the domain is not enabled we start work domain
+        if lib_domain.ID() != -1:
+            dom.destroy()
+
+
+
     def clone_image (app, clone_name, name_image, conn):
 
 
@@ -164,11 +174,14 @@ class Lib_helper:
                 break
 
 
+
     def rename_image(app, name_image, name_image_new, conn):
 
         dom = conn.lookupByName(name_image)
 
         dom.rename(name_image_new)
+
+
 
 
     def get_list_images(app, conn):

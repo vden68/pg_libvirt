@@ -33,6 +33,8 @@ class Image_helper:
             #self.app.pgl_kvm.name_sourse_image, conn=conn_open_kvm)
 
         conn_open_kvm.close()
+        self.app.clone_name_list.append(clone_name)
+
 
         return clone_name
 
@@ -68,6 +70,22 @@ class Image_helper:
         return lib_domain
 
 
+    def destroy_images(self, clone_name_list=None):
+
+        with pytest.allure.step('Подключаемся к KVM'):
+            conn_open_kvm = self.flib.connection_open()
+
+        for clone_name in clone_name_list:
+            with pytest.allure.step('Проверяем на наличие образ %s' % clone_name):
+                lib_domain = self.flib.domain_check_for_availability(check_domain=clone_name,
+                                                                     conn=conn_open_kvm)
+            if lib_domain is not None:
+                with pytest.allure.step('Выключаем виртуальную машину %s' % lib_domain):
+                    self.flib.destroy_image(lib_domain=lib_domain, conn=conn_open_kvm)
+
+        conn_open_kvm.close()
+
+
     def rename_image(self, name_image, name_image_new):
 
         with pytest.allure.step('Подключаемся к KVM'):
@@ -89,6 +107,9 @@ class Image_helper:
             self.flib.rename_image(name_image=name_image, name_image_new=name_image_new, conn=conn_open_kvm)
 
         conn_open_kvm.close()
+
+        self.app.clone_name_list.append(name_image_new)
+
 
 
     def get_list_delete(self):
