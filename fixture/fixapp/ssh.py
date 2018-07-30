@@ -50,6 +50,7 @@ class Ssh_helper:
             steps = steps_f['install']
 
             if steps_f['package'][-3:].count('deb') > 0:
+                time.sleep(20)
                 self.sshh.do_run(command="while ps ax | grep -v grep | grep -E 'dpkg-deb|unattended'; do sleep 1; done") #Test
                 print("For ubuntu---")
 
