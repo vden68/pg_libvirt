@@ -280,7 +280,7 @@
                      "echo rpm http://repo.postgrespro.ru/pgpro-archive/pgpro-9.5.13.1/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
                      "echo rpm http://repo.postgrespro.ru/pgpro-archive/pgpro-9.5.13.1/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro*.*"
+                     "apt-get install -y postgrespro*"
                   ],
                   "package" : "postgrespro9.5-server-9.5.13.1-alt1.x86_64.rpm"
                }
