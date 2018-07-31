@@ -207,7 +207,7 @@
                      "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
                      "zypper ar http://repo.postgrespro.ru/pgpro-archive/pgpro-9.5.13.1/sles/12.1 pgpro-std-9.5",
                      "zypper refresh",
-                     "zypper install -fy postgrespro*.*"
+                     "zypper install -fy postgrespro*"
                   ],
                   "version" : "9.5.13.1"
                }
@@ -241,7 +241,7 @@
                      "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
                      "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
                      "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
-                     "zypper install -fy postgrespro*.*"
+                     "zypper install -fy postgrespro*"
                   ],
                   "package" : "postgrespro95-server-9.5.13.1-1.0.x86_64.rpm"
                }

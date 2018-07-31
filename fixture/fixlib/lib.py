@@ -161,7 +161,7 @@ class Lib_helper:
         num = 1
         while num<200:
             try:
-                os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone' \
+                os.system('virt-clone --connect qemu:///system --original %s --name %s --auto-clone ' \
                      % (name_image, clone_name))
             except:
                 pass
