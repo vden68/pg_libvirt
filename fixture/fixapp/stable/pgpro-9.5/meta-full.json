@@ -282,7 +282,7 @@
                      "apt-get update -y",
                      "apt-get install -y postgrespro*"
                   ],
-                  "package" : "postgrespro9.5-server-9.5.13.1-alt1.x86_64.rpm"
+                  "package" :  "postgrespro9.5-server-9.5.13.1-alt1.x86_64.rpm"
                }
             ]
          },
