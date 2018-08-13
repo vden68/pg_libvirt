@@ -46,7 +46,7 @@ class Create_mmts_helper:
             conn_ssh_str = Pgl_ssh(ip=xm.images_ip, username="test", password="TestPass1")
 
             # tuning pg_hba.conf
-            ssh_command_str="sudo chmod 777 /var/lib/pgpro/ent-10/data/pg_hba.conf"
+            ssh_command_str="sudo chmod  777 /var/lib/pgpro/ent-10/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str="sudo sed -i '$ a host     all        all        0.0.0.0\/0       md5' /var/lib/pgpro/ent-10/data/pg_hba.conf"
@@ -56,10 +56,10 @@ class Create_mmts_helper:
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             # tuning pg_hba.conf
-            ssh_command_str = "sudo chmod 777 /var/lib/pgpro/ent-10/data/postgresql.conf"
+            ssh_command_str = "sudo  chmod  777 /var/lib/pgpro/ent-10/data/postgresql.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-10/data/postgresql.conf'
+            ssh_command_str = 'sudo  sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-10/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo sed -i "$ a max_prepared_transactions = 600"  /var/lib/pgpro/ent-10/data/postgresql.conf'
@@ -99,6 +99,7 @@ class Create_mmts_helper:
 
             ssh_command_str = 'sudo pg-setup service start'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            time.sleep(10)
 
         time.sleep(20)
         conn_ssh_str = Pgl_ssh(ip=self.mmts.mmts_data[0].images_ip, username="test", password="TestPass1")

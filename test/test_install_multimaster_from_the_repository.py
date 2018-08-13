@@ -11,6 +11,7 @@ def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
 
 
 
+    """
     with pytest.allure.step('Clone an image %s ' % app.pgl_kvm.name_source_image):
         clone_name = app.img.clone_an_image(image=app.pgl_kvm.name_source_image, clone_name=None)
 
@@ -25,14 +26,15 @@ def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
     clone_name_new= 'quick--'+clone_name
     with pytest.allure.step('Rename the virtual machine %s to %s' % (clone_name, clone_name_new)):
         app.img.rename_image(name_image=clone_name, name_image_new=clone_name_new)
+    """
 
 
 
 
 
 
-    #clone_name_new = "quick--linux--centos--7--x86_64--ee--10-mmts--0625--1"
-    #time.sleep(10)
+    clone_name_new = "quick--linux--centos--7--x86_64--mmts--10--0803--0"
+    time.sleep(10)
 
 
     with pytest.allure.step('Clone an image %s ' % clone_name_new):
