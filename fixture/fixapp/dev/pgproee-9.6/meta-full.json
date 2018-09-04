@@ -45,7 +45,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://localrepo.l.postgrespro.ru/dev/pgproee-9.6/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-ent.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro*.*"
+                     "apt-get install -y postgrespro*"
                   ],
                   "version" : "9.6.9.2",
                   "product" : "PostgresPro Enterprise",
