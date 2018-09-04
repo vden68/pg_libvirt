@@ -93,7 +93,7 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
-                     "yum install -y postgrespro-enterprise96-server-9.6.9.2-2.res7.x86_64"
+                     "yum install -y postgrespro*"
                   ],
                   "package" : "postgrespro-enterprise96-server-9.6.9.2-2.res7.x86_64.rpm",
                   "version" : "9.6.9.2"
