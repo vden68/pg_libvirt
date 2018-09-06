@@ -4,20 +4,20 @@
          "x86" : [
             {
                "package" : "PostgreSQL_1C_10.5_32bit_1C_Setup.exe",
+               "version" : "10.5",
                "packages" : [
                   "PostgreSQL_1C_10.5_32bit_1C_Setup.exe"
                ],
-               "product" : "PostgreSQL for 1C",
                "install" : "http://repo.postgrespro.ru//1c-10-beta/win/PostgreSQL_1C_10.5_32bit_1C_Setup.exe",
-               "version" : "10.5"
+               "product" : "PostgreSQL for 1C"
             }
          ],
          "x86_64" : [
             {
-               "version" : "10.5",
-               "install" : "http://repo.postgrespro.ru//1c-10-beta/win/PostgreSQL_1C_10.5_64bit_1C_Setup.exe",
                "product" : "PostgreSQL for 1C",
+               "version" : "10.5",
                "package" : "PostgreSQL_1C_10.5_64bit_1C_Setup.exe",
+               "install" : "http://repo.postgrespro.ru//1c-10-beta/win/PostgreSQL_1C_10.5_64bit_1C_Setup.exe",
                "packages" : [
                   "PostgreSQL_1C_10.5_64bit_1C_Setup.exe"
                ]
@@ -30,18 +30,9 @@
          "1.5" : {
             "x86_64" : [
                {
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
                   "product" : "PostgreSQL for 1C",
+                  "package" : "postgrespro-1c-10-server_10.5-1.smolensk_amd64.deb",
+                  "version" : "10.5",
                   "packages" : [
                      "postgrespro-1c-10-client_10.5-1.smolensk_amd64.deb",
                      "postgrespro-1c-10-contrib_10.5-1.smolensk_amd64.deb",
@@ -56,458 +47,117 @@
                      "postgrespro-1c-10-server_10.5-1.smolensk_amd64.deb",
                      "postgrespro-1c-10_10.5-1.smolensk_amd64.deb"
                   ],
-                  "package" : "postgrespro-1c-10-server_10.5-1.smolensk_amd64.deb"
-               }
-            ]
-         }
-      },
-      "rosa-sx" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rosa-sx/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.res7.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
-                     "mamonsu-2.3.4-1.res7.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.res7.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.res7.x86_64.rpm",
-                     "pgbadger-9.2-1.res7.noarch.rpm",
-                     "pgbouncer-1.8.1-1.res7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.res7.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.res7.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.res7.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.res7.x86_64.rpm",
-                     "zstd-1.1.0-1.el7.centos.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro-1c-10-server-10.5-1.res7.x86_64.rpm"
-               }
-            ]
-         },
-         "6" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-1c-10-server-10.5-1.res6.x86_64.rpm",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el6.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
-                     "mamonsu-2.3.4-1.res6.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.res6.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.res6.x86_64.rpm",
-                     "pgbadger-9.2-1.res6.noarch.rpm",
-                     "pgbouncer-1.8.1-1.res6.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.res6.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.res6.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.res6.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.res6.x86_64.rpm",
-                     "zstd-1.1.0-1.el6.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
-                  ],
-                  "version" : "10.5",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.res6.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C"
-               }
-            ]
-         }
-      },
-      "centos" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
-                     "mamonsu-2.3.4-1.el7.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.el7.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.el7.x86_64.rpm",
-                     "pgbadger-9.2-1.el7.noarch.rpm",
-                     "pgbouncer-1.8.1-1.el7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.el7.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.el7.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.el7.x86_64.rpm",
-                     "zstd-1.1.0-1.el7.centos.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
-                  ],
-                  "version" : "10.5",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el7.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C"
-               }
-            ]
-         },
-         "6" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el6.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
-                     "mamonsu-2.3.4-1.el6.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.el6.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.el6.x86_64.rpm",
-                     "pgbadger-9.2-1.el6.noarch.rpm",
-                     "pgbouncer-1.8.1-1.el6.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.el6.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.el6.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
-                     "zstd-1.1.0-1.el6.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
-                  ],
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.5"
-               }
-            ]
-         }
-      },
-      "goslinux" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el6.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
-                     "mamonsu-2.3.4-1.el6.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.el6.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.el6.x86_64.rpm",
-                     "pgbadger-9.2-1.el6.noarch.rpm",
-                     "pgbouncer-1.8.1-1.el6.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.el6.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.el6.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
-                     "zstd-1.1.0-1.el6.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm"
-               }
-            ]
-         }
-      },
-      "altlinux" : {
-         "7" : {
-            "x86_64" : [
-               {
                   "install" : [
                      "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-1c.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.5",
-                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
-                  "packages" : [
-                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
                   ]
                }
             ]
          }
       },
-      "altlinux-spt" : {
+      "debian" : {
          "7" : {
             "x86_64" : [
                {
+                  "product" : "PostgreSQL for 1C",
                   "packages" : [
-                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
+                     "postgrespro-1c-10-client_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.wheezy_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.wheezy_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.wheezy_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.wheezy_amd64.deb"
                   ],
-                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
                   "install" : [
                      "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/debian/ wheezy main > /etc/apt/sources.list.d/postgrespro-1c.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C"
+                  "package" : "postgrespro-1c-10-server_10.5-1.wheezy_amd64.deb",
+                  "version" : "10.5"
                }
             ]
          },
-         "6" : {
+         "8" : {
             "x86_64" : [
                {
                   "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server_10.5-1.jessie_amd64.deb",
                   "install" : [
                      "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/debian/ jessie main > /etc/apt/sources.list.d/postgrespro-1c.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
-                  "version" : "10.5",
                   "packages" : [
-                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
-                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm"
-               }
-            ]
-         }
-      },
-      "rhel" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el7.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.5",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
-                     "mamonsu-2.3.4-1.el7.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.el7.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.el7.x86_64.rpm",
-                     "pgbadger-9.2-1.el7.noarch.rpm",
-                     "pgbouncer-1.8.1-1.el7.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.el7.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.el7.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.el7.x86_64.rpm",
-                     "zstd-1.1.0-1.el7.centos.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm"
+                     "postgrespro-1c-10-client_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.jessie_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.jessie_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.jessie_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.jessie_amd64.deb"
+                  ]
                }
             ]
          },
-         "6" : {
+         "9" : {
             "x86_64" : [
                {
-                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
-                  "packages" : [
-                     "libzstd-1.1.0-1.el6.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
-                     "mamonsu-2.3.4-1.el6.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.el6.x86_64.rpm",
-                     "pg_repack-1c-10-debuginfo-1.4.2-1.el6.x86_64.rpm",
-                     "pgbadger-9.2-1.el6.noarch.rpm",
-                     "pgbouncer-1.8.1-1.el6.x86_64.rpm",
-                     "pgbouncer-debuginfo-1.8.1-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-debuginfo-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.el6.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.el6.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
-                     "zstd-1.1.0-1.el6.x86_64.rpm",
-                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
-                  ],
+                  "product" : "PostgreSQL for 1C",
                   "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server_10.5-1.stretch_amd64.deb",
                   "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rhel/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/debian/ stretch main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
-                  "product" : "PostgreSQL for 1C"
+                  "packages" : [
+                     "postgrespro-1c-10-client_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.stretch_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.stretch_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.stretch_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.stretch_amd64.deb"
+                  ]
                }
             ]
          }
@@ -516,6 +166,19 @@
          "6.3" : {
             "x86_64" : [
                {
+                  "product" : "PostgreSQL for 1C",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/msvsphere/6.3Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
                   "packages" : [
                      "libicu-4.2.1-14.el6.x86_64.rpm",
                      "libicu-devel-4.2.1-14.el6.x86_64.rpm",
@@ -540,12 +203,47 @@
                      "zstd-1.1.0-1.el6.x86_64.rpm",
                      "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
                   ],
-                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm"
+               }
+            ]
+         }
+      },
+      "goslinux" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "packages" : [
+                     "libzstd-1.1.0-1.el6.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
+                     "mamonsu-2.3.4-1.el6.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.el6.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.el6.x86_64.rpm",
+                     "pgbadger-9.2-1.el6.noarch.rpm",
+                     "pgbouncer-1.8.1-1.el6.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.el6.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.el6.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
+                     "zstd-1.1.0-1.el6.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
+                  ],
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
                      "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/msvsphere/6.3Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
                      "yum makecache",
@@ -553,17 +251,118 @@
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C"
+                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                  "version" : "10.5"
                }
             ]
          }
       },
       "ubuntu" : {
+         "16.04" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server_10.5-1.xenial_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "packages" : [
+                     "postgrespro-1c-10-client_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.xenial_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.xenial_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.xenial_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.xenial_amd64.deb"
+                  ]
+               }
+            ]
+         },
+         "17.10" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server_10.5-1.artful_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/ubuntu/ artful main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "packages" : [
+                     "postgrespro-1c-10-client_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.artful_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.artful_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.artful_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.artful_amd64.deb"
+                  ]
+               }
+            ]
+         },
+         "18.04" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "package" : "postgrespro-1c-10-server_10.5-1.bionic_amd64.deb",
+                  "version" : "10.5",
+                  "packages" : [
+                     "postgrespro-1c-10-client_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.bionic_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.bionic_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.bionic_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.bionic_amd64.deb"
+                  ],
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ]
+               }
+            ]
+         },
          "14.04" : {
             "x86_64" : [
                {
+                  "product" : "PostgreSQL for 1C",
                   "package" : "postgrespro-1c-10-server_10.5-1.trusty_amd64.deb",
+                  "version" : "10.5",
                   "packages" : [
                      "postgrespro-1c-10-client_10.5-1.trusty_amd64.deb",
                      "postgrespro-1c-10-contrib_10.5-1.trusty_amd64.deb",
@@ -587,277 +386,87 @@
                      "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C"
-               }
-            ]
-         },
-         "16.04" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgreSQL for 1C",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.xenial_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.xenial_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.xenial_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.xenial_amd64.deb"
-                  ],
-                  "package" : "postgrespro-1c-10-server_10.5-1.xenial_amd64.deb"
-               }
-            ]
-         },
-         "17.10" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-1c-10-server_10.5-1.artful_amd64.deb",
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.artful_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.artful_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.artful_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.artful_amd64.deb"
-                  ],
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/ubuntu/ artful main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.5"
-               }
-            ]
-         },
-         "18.04" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.bionic_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.bionic_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.bionic_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.bionic_amd64.deb"
-                  ],
-                  "package" : "postgrespro-1c-10-server_10.5-1.bionic_amd64.deb",
-                  "version" : "10.5",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C"
-               }
-            ]
-         }
-      },
-      "debian" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/debian/ wheezy main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.5",
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.wheezy_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.wheezy_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.wheezy_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.wheezy_amd64.deb"
-                  ],
-                  "package" : "postgrespro-1c-10-server_10.5-1.wheezy_amd64.deb"
-               }
-            ]
-         },
-         "9" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.stretch_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.stretch_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.stretch_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.stretch_amd64.deb"
-                  ],
-                  "package" : "postgrespro-1c-10-server_10.5-1.stretch_amd64.deb",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/debian/ stretch main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C"
-               }
-            ]
-         },
-         "8" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/debian/ jessie main > /etc/apt/sources.list.d/postgrespro-1c.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-1c-10-server",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C",
-                  "package" : "postgrespro-1c-10-server_10.5-1.jessie_amd64.deb",
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.jessie_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.jessie_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.jessie_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.jessie_amd64.deb"
                   ]
                }
             ]
          }
       },
-      "astra-orel" : {
-         "2.11" : {
+      "altlinux-spt" : {
+         "6" : {
             "x86_64" : [
                {
                   "packages" : [
-                     "postgrespro-1c-10-client_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-dev_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.4-1.orel_all.deb",
-                     "postgrespro-1c-10-docs_10.4-1.orel_all.deb",
-                     "postgrespro-1c-10-libs_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10-server_10.4-1.orel_amd64.deb",
-                     "postgrespro-1c-10_10.4-1.orel_amd64.deb"
+                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
                   ],
-                  "package" : "postgrespro-1c-10-server_10.4-1.orel_amd64.deb",
                   "install" : [
                      "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/astra-orel/2.11/ orel main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.4"
+                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
+                  "version" : "10.5",
+                  "product" : "PostgreSQL for 1C"
                }
             ]
          },
-         "2.12" : {
+         "7" : {
             "x86_64" : [
                {
-                  "packages" : [
-                     "postgrespro-1c-10-client_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-contrib_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-dev_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-docs-ru_10.5-1.orel_all.deb",
-                     "postgrespro-1c-10-docs_10.5-1.orel_all.deb",
-                     "postgrespro-1c-10-libs_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-plperl_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-plpython3_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-plpython_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-pltcl_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10-server_10.5-1.orel_amd64.deb",
-                     "postgrespro-1c-10_10.5-1.orel_amd64.deb"
-                  ],
-                  "package" : "postgrespro-1c-10-server_10.5-1.orel_amd64.deb",
                   "install" : [
                      "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//1c-10-beta/astra-orel/2.12/ orel main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
                      "apt-get update -y",
                      "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
-                  "product" : "PostgreSQL for 1C",
-                  "version" : "10.5"
+                  "packages" : [
+                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
+                  ],
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
+                  "product" : "PostgreSQL for 1C"
                }
             ]
          }
@@ -866,20 +475,7 @@
          "6" : {
             "x86_64" : [
                {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.res6.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
                   "product" : "PostgreSQL for 1C",
-                  "version" : "10.5",
                   "packages" : [
                      "libzstd-1.1.0-1.el6.x86_64.rpm",
                      "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
@@ -905,7 +501,88 @@
                      "zstd-1.1.0-1.el6.x86_64.rpm",
                      "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
                   ],
-                  "package" : "postgrespro-1c-10-server-10.5-1.res6.x86_64.rpm"
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.res6.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server-10.5-1.res6.x86_64.rpm",
+                  "version" : "10.5"
+               }
+            ]
+         }
+      },
+      "astra-orel" : {
+         "2.12" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-1c-10-client_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-dev_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.5-1.orel_all.deb",
+                     "postgrespro-1c-10-docs_10.5-1.orel_all.deb",
+                     "postgrespro-1c-10-libs_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10-server_10.5-1.orel_amd64.deb",
+                     "postgrespro-1c-10_10.5-1.orel_amd64.deb"
+                  ],
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/astra-orel/2.12/ orel main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server_10.5-1.orel_amd64.deb",
+                  "version" : "10.5",
+                  "product" : "PostgreSQL for 1C"
+               }
+            ]
+         },
+         "2.11" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-1c-10-client_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-contrib_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-dev_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-docs-ru_10.4-1.orel_all.deb",
+                     "postgrespro-1c-10-docs_10.4-1.orel_all.deb",
+                     "postgrespro-1c-10-libs_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-plperl_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-plpython3_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-plpython_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-pltcl_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10-server_10.4-1.orel_amd64.deb",
+                     "postgrespro-1c-10_10.4-1.orel_amd64.deb"
+                  ],
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//1c-10-beta/astra-orel/2.11/ orel main > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server_10.4-1.orel_amd64.deb",
+                  "version" : "10.4",
+                  "product" : "PostgreSQL for 1C"
                }
             ]
          }
@@ -914,21 +591,6 @@
          "6" : {
             "x86_64" : [
                {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/oraclelinux/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "product" : "PostgreSQL for 1C",
-                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
                   "packages" : [
                      "libzstd-1.1.0-1.el6.x86_64.rpm",
                      "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
@@ -953,7 +615,22 @@
                      "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
                      "zstd-1.1.0-1.el6.x86_64.rpm",
                      "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
-                  ]
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/oraclelinux/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                  "version" : "10.5",
+                  "product" : "PostgreSQL for 1C"
                }
             ]
          },
@@ -961,20 +638,6 @@
             "x86_64" : [
                {
                   "product" : "PostgreSQL for 1C",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/oraclelinux/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro-1c-10-server-10.5-1.el7.x86_64",
-                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
-                     "service postgrespro-1c-10 start"
-                  ],
-                  "version" : "10.5",
-                  "package" : "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
                   "packages" : [
                      "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
                      "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
@@ -999,16 +662,69 @@
                      "postgrespro-1c-10-test-10.5-1.el7.x86_64.rpm",
                      "zstd-1.1.0-1.el7.centos.x86_64.rpm",
                      "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
-                  ]
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/oraclelinux/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el7.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
+                  "version" : "10.5"
                }
             ]
          }
       },
       "sles" : {
+         "12.1" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-1c-10-server-10.5-1.x86_64.rpm",
+                  "version" : "10.5",
+                  "packages" : [
+                     "libzstd-1.1.0-1.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.x86_64.rpm",
+                     "mamonsu-2.3.4-1.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.x86_64.rpm",
+                     "pgbadger-9.2-1.noarch.rpm",
+                     "pgbouncer-1.8.1-1.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.x86_64.rpm",
+                     "zstd-1.1.0-1.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repo.postgrespro.ru//1c-10-beta/sles/12.1 pgpro-1c-10",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro-1c-10-server-10.5-1.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "product" : "PostgreSQL for 1C"
+               }
+            ]
+         },
          "11" : {
             "x86_64" : [
                {
                   "package" : "postgrespro-1c-10-server-10.5-1.x86_64.rpm",
+                  "version" : "10.5",
                   "packages" : [
                      "icu-4.6.1-5.1.2.x86_64.rpm",
                      "icu-data-4.6.1-5.1.2.x86_64.rpm",
@@ -1035,7 +751,6 @@
                      "postgrespro-1c-10-test-10.5-1.x86_64.rpm",
                      "zstd-1.1.0-1.x86_64.rpm"
                   ],
-                  "version" : "10.5",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
                      "zypper ar http://repo.postgrespro.ru//1c-10-beta/sles/11 pgpro-1c-10",
@@ -1051,42 +766,366 @@
                   "product" : "PostgreSQL for 1C"
                }
             ]
-         },
-         "12.1" : {
+         }
+      },
+      "altlinux" : {
+         "8" : {
             "x86_64" : [
                {
-                  "packages" : [
-                     "libzstd-1.1.0-1.x86_64.rpm",
-                     "libzstd-devel-1.1.0-1.x86_64.rpm",
-                     "mamonsu-2.3.4-1.noarch.rpm",
-                     "pg_repack-1c-10-1.4.2-1.x86_64.rpm",
-                     "pgbadger-9.2-1.noarch.rpm",
-                     "pgbouncer-1.8.1-1.x86_64.rpm",
-                     "postgrespro-1c-10-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-client-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-contrib-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-devel-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-docs-10.5-1.noarch.rpm",
-                     "postgrespro-1c-10-docs-ru-10.5-1.noarch.rpm",
-                     "postgrespro-1c-10-libs-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-plperl-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-plpython-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-pltcl-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-server-10.5-1.x86_64.rpm",
-                     "postgrespro-1c-10-test-10.5-1.x86_64.rpm",
-                     "zstd-1.1.0-1.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro-1c-10-server-10.5-1.x86_64.rpm",
-                  "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
                   "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
-                     "zypper ar http://repo.postgrespro.ru//1c-10-beta/sles/12.1 pgpro-1c-10",
-                     "zypper refresh",
-                     "zypper install -fy postgrespro-1c-10-server-10.5-1.x86_64",
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
                      "/opt/pgpro/1c-10/bin/pg-setup initdb",
                      "service postgrespro-1c-10 start"
                   ],
+                  "packages" : [
+                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
+                  ],
+                  "product" : "PostgreSQL for 1C"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "packages" : [
+                     "postgrespro-1c-10-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-client-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-devel-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-libs-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-debuginfo-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
+                     "postgrespro-1c-10-server-debuginfo-10.5-alt1.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "echo rpm http://repo.postgrespro.ru//1c-10-beta/altlinux/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-1c.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-1c-10-server",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server-10.5-alt1.x86_64.rpm",
                   "version" : "10.5"
+               }
+            ]
+         }
+      },
+      "rhel" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rhel/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "packages" : [
+                     "libzstd-1.1.0-1.el6.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
+                     "mamonsu-2.3.4-1.el6.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.el6.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.el6.x86_64.rpm",
+                     "pgbadger-9.2-1.el6.noarch.rpm",
+                     "pgbouncer-1.8.1-1.el6.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.el6.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.el6.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
+                     "zstd-1.1.0-1.el6.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
+                  ]
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
+                     "mamonsu-2.3.4-1.el7.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.el7.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.el7.x86_64.rpm",
+                     "pgbadger-9.2-1.el7.noarch.rpm",
+                     "pgbouncer-1.8.1-1.el7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.el7.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.el7.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.el7.x86_64.rpm",
+                     "zstd-1.1.0-1.el7.centos.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el7.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "package" : "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
+                  "version" : "10.5",
+                  "product" : "PostgreSQL for 1C"
+               }
+            ]
+         }
+      },
+      "rosa-sx" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-1.res7.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rosa-sx/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.res7.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "packages" : [
+                     "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
+                     "mamonsu-2.3.4-1.res7.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.res7.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.res7.x86_64.rpm",
+                     "pgbadger-9.2-1.res7.noarch.rpm",
+                     "pgbouncer-1.8.1-1.res7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.res7.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.res7.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.res7.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.res7.x86_64.rpm",
+                     "zstd-1.1.0-1.el7.centos.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
+                  ]
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-1.res6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.res6.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "packages" : [
+                     "libzstd-1.1.0-1.el6.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
+                     "mamonsu-2.3.4-1.res6.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.res6.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.res6.x86_64.rpm",
+                     "pgbadger-9.2-1.res6.noarch.rpm",
+                     "pgbouncer-1.8.1-1.res6.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.res6.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.res6.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.res6.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.res6.x86_64.rpm",
+                     "zstd-1.1.0-1.el6.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
+                  ]
+               }
+            ]
+         }
+      },
+      "centos" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "package" : "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
+                  "version" : "10.5",
+                  "packages" : [
+                     "libzstd-1.1.0-1.el7.centos.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el7.centos.x86_64.rpm",
+                     "mamonsu-2.3.4-1.el7.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.el7.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.el7.x86_64.rpm",
+                     "pgbadger-9.2-1.el7.noarch.rpm",
+                     "pgbouncer-1.8.1-1.el7.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.el7.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.el7.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.el7.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.el7.x86_64.rpm",
+                     "zstd-1.1.0-1.el7.centos.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el7.centos.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el7.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ]
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgreSQL for 1C",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-1c] > /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo name=Postgres Pro 1C repo >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//1c-10-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-1c.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro-1c-10-server-10.5-1.el6.x86_64",
+                     "/opt/pgpro/1c-10/bin/pg-setup initdb",
+                     "service postgrespro-1c-10 start"
+                  ],
+                  "packages" : [
+                     "libzstd-1.1.0-1.el6.x86_64.rpm",
+                     "libzstd-devel-1.1.0-1.el6.x86_64.rpm",
+                     "mamonsu-2.3.4-1.el6.noarch.rpm",
+                     "pg_repack-1c-10-1.4.2-1.el6.x86_64.rpm",
+                     "pg_repack-1c-10-debuginfo-1.4.2-1.el6.x86_64.rpm",
+                     "pgbadger-9.2-1.el6.noarch.rpm",
+                     "pgbouncer-1.8.1-1.el6.x86_64.rpm",
+                     "pgbouncer-debuginfo-1.8.1-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-client-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-contrib-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-debuginfo-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-devel-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-docs-10.5-1.el6.noarch.rpm",
+                     "postgrespro-1c-10-docs-ru-10.5-1.el6.noarch.rpm",
+                     "postgrespro-1c-10-libs-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-plperl-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-plpython-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-pltcl-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm",
+                     "postgrespro-1c-10-test-10.5-1.el6.x86_64.rpm",
+                     "zstd-1.1.0-1.el6.x86_64.rpm",
+                     "zstd-debuginfo-1.1.0-1.el6.x86_64.rpm"
+                  ],
+                  "version" : "10.5",
+                  "package" : "postgrespro-1c-10-server-10.5-1.el6.x86_64.rpm"
                }
             ]
          }
