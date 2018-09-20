@@ -91,8 +91,26 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo -H -u postgres psql -c "CREATE USER myuser WITH SUPERUSER ENCRYPTED PASSWORD \'myuserpassword\';"'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER myuser;"'
-            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            print('xm.node_id=', xm.node_id)
+            if xm.node_id=='2':
+                print('True.xm.node_id=', xm.node_id)
+
+                ssh_command_str = 'sudo -H -u postgres mkdir /var/lib/pgpro/ent-10/cfs'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE TABLESPACE cfs location \'/var/lib/pgpro/ent-10/cfs\' with (compression=true);"'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER myuser TABLESPACE cfs;"'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+                ssh_command_str = 'sudo -H -u postgres psql -d mydb -c "set default_tablespace=cfs;"'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            else:
+                print('False.xm.node_id=', xm.node_id)
+
+                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER myuser;"'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo pg-setup service stop'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
