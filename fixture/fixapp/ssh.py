@@ -61,6 +61,10 @@ class Ssh_helper:
                     if step.find("install")>0 and step.find("postgrespro")>0 and quick_install_mode:
                         #pass
                         step2=step[:step.find("10")+2]
+
+                        if step2=="a":
+                            step2 = step[:step.find("11") + 2]
+
                         print('\nstep=', step2)
                         self.step_sudo(step2)
                         break
