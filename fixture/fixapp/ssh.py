@@ -62,7 +62,7 @@ class Ssh_helper:
                         #pass
                         step2=step[:step.find("10")+2]
 
-                        if step2=="a":
+                        if step2=="a" or step2=="y" or step2=="z":
                             step2 = step[:step.find("11") + 2]
 
                         print('\nstep=', step2)
