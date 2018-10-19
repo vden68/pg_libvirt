@@ -45,6 +45,40 @@
             ]
          }
       },
+      "altlinux" : {
+         "8" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-ent-11-server-11.0.1-alt1.x86_64.rpm",
+                  "version" : "11.0.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://localrepo.l.postgrespro.ru/dev/pgproee-11/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "echo rpm http://localrepo.l.postgrespro.ru/dev/pgproee-11/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-ent.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro*.*",
+                     "/opt/pgpro/ent-11/bin/pg-setup initdb",
+                     "service postgrespro-ent-11 start"
+                  ],
+                  "product" : "PostgresPro Enterprise",
+                  "packages" : [
+                     "postgrespro-ent-11-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-client-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-contrib-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-devel-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-libs-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-pgprobackup-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-plperl-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-plpython-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-pltcl-11.0.1-alt1.x86_64.rpm",
+                     "postgrespro-ent-11-server-11.0.1-alt1.x86_64.rpm"
+                  ]
+               }
+            ]
+         }
+      },
       "ubuntu" : {
          "18.04" : {
             "x86_64" : [
