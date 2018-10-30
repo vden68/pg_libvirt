@@ -379,7 +379,7 @@
                      "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
                      "echo deb http://localrepo.l.postgrespro.ru/dev/pgpro-10/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-std.list",
                      "apt-get update -y",
-                     "apt-get install -y postgrespro*.*",
+                     "apt-get install -y postgrespro*",
                      "/opt/pgpro/std-10/bin/pg-setup initdb",
                      "service postgrespro-std-10 start"
                   ]
