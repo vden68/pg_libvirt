@@ -1,488 +1,26 @@
 {
-   "windows" : {
-      "sdk71" : {
-         "x86_64" : [
-            {
-               "version" : "9.5.14.1",
-               "product" : "PostgresPro Standard",
-               "packages" : [
-                  "PostgresPro_9.5.14.1_64bit_Setup.exe"
-               ],
-               "install" : "http://repo.postgrespro.ru//pgpro-9.5-beta/win/sdk71/PostgresPro_9.5.14.1_64bit_Setup.exe",
-               "package" : "PostgresPro_9.5.14.1_64bit_Setup.exe"
-            }
-         ],
-         "x86" : [
-            {
-               "version" : "9.5.14.1",
-               "install" : "http://repo.postgrespro.ru//pgpro-9.5-beta/win/sdk71/PostgresPro_9.5.14.1_32bit_Setup.exe",
-               "package" : "PostgresPro_9.5.14.1_32bit_Setup.exe",
-               "packages" : [
-                  "PostgresPro_9.5.14.1_32bit_Setup.exe"
-               ],
-               "product" : "PostgresPro Standard"
-            }
-         ]
-      },
-      "msvc2013" : {
-         "x86" : [
-            {
-               "version" : "9.5.14.1",
-               "install" : "http://repo.postgrespro.ru//pgpro-9.5-beta/win/PostgresPro_9.5.14.1_32bit_Setup.exe",
-               "package" : "PostgresPro_9.5.14.1_32bit_Setup.exe",
-               "packages" : [
-                  "PostgresPro_9.5.14.1_32bit_Setup.exe"
-               ],
-               "product" : "PostgresPro Standard"
-            }
-         ],
-         "x86_64" : [
-            {
-               "version" : "9.5.14.1",
-               "product" : "PostgresPro Standard",
-               "install" : "http://repo.postgrespro.ru//pgpro-9.5-beta/win/PostgresPro_9.5.14.1_64bit_Setup.exe",
-               "package" : "PostgresPro_9.5.14.1_64bit_Setup.exe",
-               "packages" : [
-                  "PostgresPro_9.5.14.1_64bit_Setup.exe"
-               ]
-            }
-         ]
-      }
-   },
    "linux" : {
-      "rosa-el" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "postgrespro-9.5.rosa-el.pro.yum-9.5-2.1.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.res6.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.res6.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.res6.x86_64"
-                  ],
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
-      "centos" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.14.1",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el6.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                  "packages" : [
-                     "postgrespro-9.5.centos.pro.yum-9.5-2.2.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el6.x86_64.rpm"
-                  ],
-                  "product" : "PostgresPro Standard"
-               }
-            ]
-         },
-         "7" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.13.1",
-                  "packages" : [
-                     "postgrespro-9.5.centos.pro.yum-9.5-2.2.noarch.rpm",
-                     "postgrespro95-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-devel-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-libs-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-server-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-test-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el7.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro95-server-9.5.13.1-1.el7.centos.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.13.1-1.el7.centos.x86_64"
-                  ],
-                  "product" : "PostgresPro Standard"
-               },
-               {
-                  "version" : "9.5.14.1",
-                  "packages" : [
-                     "postgrespro-9.5.centos.pro.yum-9.5-2.2.noarch.rpm",
-                     "postgrespro95-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-devel-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-libs-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-server-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-test-9.5.13.1-1.el7.centos.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el7.x86_64.rpm"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el7.x86_64"
-                  ],
-                  "product" : "PostgresPro Standard"
-               }
-            ]
-         }
-      },
-      "altlinux" : {
-         "8" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.14.1",
-                  "packages" : [
-                     "postgrespro9.5-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-static-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-debuginfo-9.5.14.1-alt1.x86_64.rpm"
-                  ],
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro9.5-server"
-                  ],
-                  "package" : "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                  "product" : "PostgresPro Standard"
-               }
-            ]
-         },
-         "7" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.14.1",
-                  "packages" : [
-                     "postgrespro9.5-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-static-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-debuginfo-9.5.14.1-alt1.x86_64.rpm"
-                  ],
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro9.5-server"
-                  ],
-                  "package" : "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                  "product" : "PostgresPro Standard"
-               }
-            ]
-         }
-      },
-      "altlinux-spt" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.14.1",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro9.5-server"
-                  ],
-                  "package" : "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                  "packages" : [
-                     "postgrespro9.5-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-static-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-debuginfo-9.5.14.1-alt1.x86_64.rpm"
-                  ],
-                  "product" : "PostgresPro Standard"
-               }
-            ]
-         },
-         "7" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "postgrespro9.5-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-contrib-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-devel-static-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-perl-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-pg_arman-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-python-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-server-debuginfo-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-9.5.14.1-alt1.x86_64.rpm",
-                     "postgrespro9.5-tcl-debuginfo-9.5.14.1-alt1.x86_64.rpm"
-                  ],
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y curl gnupg2",
-                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro9.5-server"
-                  ],
-                  "package" : "postgrespro9.5-server-9.5.14.1-alt1.x86_64.rpm",
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
-      "goslinux" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Standard",
-                  "package" : "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el6.x86_64"
-                  ],
-                  "packages" : [
-                     "postgrespro-9.5.goslinux.pro.yum-9.5-3.3.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el6.x86_64.rpm"
-                  ],
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
-      "astra-smolensk" : {
-         "1.5" : {
-            "x86_64" : [
-               {
-                  "package" : "postgrespro-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.5"
-                  ],
-                  "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.smolensk.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.smolensk.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.smolensk.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.smolensk.pro_amd64.deb"
-                  ],
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
       "oraclelinux" : {
-         "6" : {
+         "7" : {
             "x86_64" : [
                {
-                  "product" : "PostgresPro Standard",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/oraclelinux/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el6.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
+                  "version" : "9.5.15.1",
                   "packages" : [
                      "postgrespro-9.5.oraclelinux.pro.yum-9.5-2.1.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el6.x86_64.rpm"
+                     "postgrespro95-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el7.x86_64.rpm"
                   ],
-                  "version" : "9.5.14.1"
-               }
-            ]
-         },
-         "7" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Standard",
                   "install" : [
                      "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
                      "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
@@ -491,346 +29,45 @@
                      "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
                      "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el7.x86_64"
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el7.x86_64"
                   ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
+                  "package" : "postgrespro95-server-9.5.15.1-1.el7.x86_64.rpm",
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/oraclelinux/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el6.x86_64"
+                  ],
                   "packages" : [
                      "postgrespro-9.5.oraclelinux.pro.yum-9.5-2.1.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el7.x86_64.rpm"
-                  ],
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
-      "ubuntu" : {
-         "16.04" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.5"
-                  ],
-                  "package" : "postgrespro-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                  "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.xenial.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.xenial.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.xenial.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.xenial.pro_amd64.deb"
+                     "postgrespro95-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el6.x86_64.rpm"
                   ],
                   "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         },
-         "18.04" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.bionic.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.bionic.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.bionic.pro_amd64.deb"
-                  ],
-                  "package" : "postgrespro-9.5_9.5.14.1-1.bionic.pro_amd64.deb",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.5"
-                  ],
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         },
-         "17.10" : {
-            "x86_64" : [
-               {
-                  "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.artful.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.artful.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.artful.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.artful.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.artful.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.artful.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.artful.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.artful.pro_amd64.deb"
-                  ],
-                  "package" : "postgrespro-9.5_9.5.14.1-1.artful.pro_amd64.deb",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ artful main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.5"
-                  ],
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         },
-         "14.04" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ trusty main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.5"
-                  ],
-                  "package" : "postgrespro-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                  "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.trusty.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.trusty.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.trusty.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.trusty.pro_amd64.deb"
-                  ],
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
-      "rosa-sx" : {
-         "6" : {
-            "x86_64" : [
-               {
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.res6.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.res6.x86_64.rpm",
-                  "packages" : [
-                     "postgrespro-9.5.rosa-sx.pro.yum-9.5-2.1.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.res6.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.res6.x86_64.rpm"
-                  ],
-                  "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
-               }
-            ]
-         }
-      },
-      "sles" : {
-         "11" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.14.1",
-                  "product" : "PostgresPro Standard",
-                  "packages" : [
-                     "libecpg6-9.5.14.1-1.0.x86_64.rpm",
-                     "libpq5-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.0.x86_64.rpm"
-                  ],
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
-                     "zypper ar http://repo.postgrespro.ru//pgpro-9.5-beta/sles/11 pgpro-std-9.5",
-                     "zypper refresh",
-                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
-                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
-                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
-                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
-                     "zypper install -fy postgrespro95-server-9.5.14.1-1.0.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.0.x86_64.rpm"
-               }
-            ]
-         },
-         "12.1" : {
-            "x86_64" : [
-               {
-                  "version" : "9.5.14.1",
-                  "product" : "PostgresPro Standard",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
-                     "zypper ar http://repo.postgrespro.ru//pgpro-9.5-beta/sles/12.1 pgpro-std-9.5",
-                     "zypper refresh",
-                     "zypper install -fy postgrespro95-server-9.5.14.1-1.0.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.0.x86_64.rpm",
-                  "packages" : [
-                     "libecpg6-9.5.14.1-1.0.x86_64.rpm",
-                     "libpq5-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.0.noarch.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.0.noarch.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.0.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.0.x86_64.rpm"
-                  ]
-               }
-            ]
-         }
-      },
-      "rhel" : {
-         "7" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Standard",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el7.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
-                  "packages" : [
-                     "postgrespro95-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el7.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el7.x86_64.rpm"
-                  ],
-                  "version" : "9.5.14.1"
-               }
-            ]
-         },
-         "6" : {
-            "x86_64" : [
-               {
-                  "product" : "PostgresPro Standard",
-                  "install" : [
-                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
-                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rhel/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
-                     "yum makecache",
-                     "yum install -y postgrespro95-server-9.5.14.1-1.el6.x86_64"
-                  ],
-                  "package" : "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                  "packages" : [
-                     "postgrespro-9.5.rhel.pro.yum-9.5-2.1.noarch.rpm",
-                     "postgrespro95-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-contrib-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-debuginfo-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-devel-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-docs-ru-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-libs-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pg_arman-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plperl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-plpython-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-pltcl-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-server-9.5.14.1-1.el6.x86_64.rpm",
-                     "postgrespro95-test-9.5.14.1-1.el6.x86_64.rpm"
-                  ],
-                  "version" : "9.5.14.1"
+                  "version" : "9.5.15.1"
                }
             ]
          }
@@ -839,26 +76,8 @@
          "9" : {
             "x86_64" : [
                {
-                  "version" : "9.5.14.1",
-                  "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.stretch.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.stretch.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.stretch.pro_amd64.deb"
-                  ],
+                  "version" : "9.5.15.1",
+                  "package" : "postgrespro-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
@@ -867,7 +86,25 @@
                      "apt-get update -y",
                      "apt-get install -y postgrespro-9.5"
                   ],
-                  "package" : "postgrespro-9.5_9.5.14.1-1.stretch.pro_amd64.deb",
+                  "packages" : [
+                     "libecpg-compat3_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "libecpg-dev_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "libecpg6_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "libpgtypes3_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "libpq-dev_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "libpq5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.15.1-1.stretch.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.15.1-1.stretch.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.15.1-1.stretch.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.15.1-1.stretch.pro_amd64.deb"
+                  ],
                   "product" : "PostgresPro Standard"
                }
             ]
@@ -875,6 +112,7 @@
          "8" : {
             "x86_64" : [
                {
+                  "package" : "postgrespro-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
                   "install" : [
                      "apt-get update -y",
                      "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
@@ -883,43 +121,34 @@
                      "apt-get update -y",
                      "apt-get install -y postgrespro-9.5"
                   ],
-                  "package" : "postgrespro-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
                   "packages" : [
-                     "libecpg-compat3_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "libecpg-dev_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "libecpg6_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "libpgtypes3_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "libpq-dev_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "libpq5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-client-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-contrib-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-doc-9.5_9.5.14.1-1.jessie.pro_all.deb",
-                     "postgrespro-doc-ru-9.5_9.5.14.1-1.jessie.pro_all.deb",
-                     "postgrespro-pg-arman-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-plperl-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-plpython-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-plpython3-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-pltcl-9.5_9.5.14.1-1.jessie.pro_amd64.deb",
-                     "postgrespro-server-dev-9.5_9.5.14.1-1.jessie.pro_amd64.deb"
+                     "libecpg-compat3_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "libecpg-dev_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "libecpg6_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "libpgtypes3_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "libpq-dev_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "libpq5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.15.1-1.jessie.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.15.1-1.jessie.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.15.1-1.jessie.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.15.1-1.jessie.pro_amd64.deb"
                   ],
                   "product" : "PostgresPro Standard",
-                  "version" : "9.5.14.1"
+                  "version" : "9.5.15.1"
                }
             ]
          },
          "7" : {
             "x86_64" : [
                {
-                  "package" : "postgrespro-9.5_9.5.14.1-1.wheezy.pro_amd64.deb",
-                  "install" : [
-                     "apt-get update -y",
-                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
-                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
-                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/debian/ wheezy main > /etc/apt/sources.list.d/postgrespro-std.list",
-                     "apt-get update -y",
-                     "apt-get install -y postgrespro-9.5"
-                  ],
+                  "version" : "9.5.14.1",
                   "packages" : [
                      "libecpg-compat3_9.5.14.1-1.wheezy.pro_amd64.deb",
                      "libecpg-dev_9.5.14.1-1.wheezy.pro_amd64.deb",
@@ -939,11 +168,705 @@
                      "postgrespro-pltcl-9.5_9.5.14.1-1.wheezy.pro_amd64.deb",
                      "postgrespro-server-dev-9.5_9.5.14.1-1.wheezy.pro_amd64.deb"
                   ],
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/debian/ wheezy main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.5"
+                  ],
+                  "package" : "postgrespro-9.5_9.5.14.1-1.wheezy.pro_amd64.deb",
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         }
+      },
+      "astra-smolensk" : {
+         "1.5" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/astra-smolensk/1.5/ smolensk main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.5"
+                  ],
+                  "packages" : [
+                     "libecpg-compat3_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "libecpg-dev_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "libecpg6_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "libpgtypes3_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "libpq-dev_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "libpq5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.15.1-1.smolensk.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.15.1-1.smolensk.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.15.1-1.smolensk.pro_amd64.deb"
+                  ],
+                  "package" : "postgrespro-9.5_9.5.15.1-1.smolensk.pro_amd64.deb",
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         }
+      },
+      "ubuntu" : {
+         "16.04" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ xenial main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.5"
+                  ],
+                  "packages" : [
+                     "libecpg-compat3_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "libecpg-dev_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "libecpg6_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "libpgtypes3_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "libpq-dev_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "libpq5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.15.1-1.xenial.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.15.1-1.xenial.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.15.1-1.xenial.pro_amd64.deb"
+                  ],
+                  "package" : "postgrespro-9.5_9.5.15.1-1.xenial.pro_amd64.deb",
+                  "product" : "PostgresPro Standard",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         },
+         "17.10" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ artful main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.5"
+                  ],
+                  "packages" : [
+                     "libecpg-compat3_9.5.14.1-1.artful.pro_amd64.deb",
+                     "libecpg-dev_9.5.14.1-1.artful.pro_amd64.deb",
+                     "libecpg6_9.5.14.1-1.artful.pro_amd64.deb",
+                     "libpgtypes3_9.5.14.1-1.artful.pro_amd64.deb",
+                     "libpq-dev_9.5.14.1-1.artful.pro_amd64.deb",
+                     "libpq5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.14.1-1.artful.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.14.1-1.artful.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.14.1-1.artful.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.14.1-1.artful.pro_amd64.deb"
+                  ],
                   "product" : "PostgresPro Standard",
                   "version" : "9.5.14.1"
                }
             ]
+         },
+         "18.04" : {
+            "x86_64" : [
+               {
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ bionic main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.5"
+                  ],
+                  "packages" : [
+                     "libecpg-compat3_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "libecpg-dev_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "libecpg6_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "libpgtypes3_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "libpq-dev_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "libpq5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.15.1-1.bionic.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.15.1-1.bionic.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.15.1-1.bionic.pro_amd64.deb"
+                  ],
+                  "package" : "postgrespro-9.5_9.5.15.1-1.bionic.pro_amd64.deb",
+                  "product" : "PostgresPro Standard",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         },
+         "14.04" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y wget gnupg2 || apt-get install -y gnupg",
+                     "wget -O - http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | apt-key add -",
+                     "echo deb http://repo.postgrespro.ru//pgpro-9.5-beta/ubuntu/ trusty main > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro-9.5"
+                  ],
+                  "packages" : [
+                     "libecpg-compat3_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "libecpg-dev_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "libecpg6_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "libpgtypes3_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "libpq-dev_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "libpq5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-client-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-contrib-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-doc-9.5_9.5.15.1-1.trusty.pro_all.deb",
+                     "postgrespro-doc-ru-9.5_9.5.15.1-1.trusty.pro_all.deb",
+                     "postgrespro-pg-arman-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-plperl-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-plpython-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-plpython3-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-pltcl-9.5_9.5.15.1-1.trusty.pro_amd64.deb",
+                     "postgrespro-server-dev-9.5_9.5.15.1-1.trusty.pro_amd64.deb"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "9.5.15.1"
+               }
+            ]
          }
+      },
+      "centos" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "product" : "PostgresPro Standard",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/centos/7/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el7.x86_64"
+                  ],
+                  "packages" : [
+                     "postgrespro-9.5.centos.pro.yum-9.5-2.2.noarch.rpm",
+                     "postgrespro95-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el7.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro95-server-9.5.15.1-1.el7.x86_64.rpm"
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "product" : "PostgresPro Standard",
+                  "package" : "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/centos/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el6.x86_64"
+                  ],
+                  "packages" : [
+                     "postgrespro-9.5.centos.pro.yum-9.5-2.2.noarch.rpm",
+                     "postgrespro95-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el6.x86_64.rpm"
+                  ]
+               }
+            ]
+         }
+      },
+      "goslinux" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-9.5.goslinux.pro.yum-9.5-3.3.noarch.rpm",
+                     "postgrespro95-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el6.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/goslinux/6/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el6.x86_64"
+                  ],
+                  "package" : "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                  "product" : "PostgresPro Standard",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         }
+      },
+      "altlinux-spt" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/6 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/6  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro9.5-server"
+                  ],
+                  "packages" : [
+                     "postgrespro9.5-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-static-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-debuginfo-9.5.15.1-alt1.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "package" : "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux-spt/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro9.5-server"
+                  ],
+                  "packages" : [
+                     "postgrespro9.5-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-static-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-debuginfo-9.5.15.1-alt1.x86_64.rpm"
+                  ],
+                  "version" : "9.5.15.1"
+               }
+            ]
+         }
+      },
+      "rhel" : {
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "package" : "postgrespro95-server-9.5.15.1-1.el7.x86_64.rpm",
+                  "packages" : [
+                     "postgrespro95-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el7.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el7.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rhel/7Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el7.x86_64"
+                  ],
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         },
+         "6" : {
+            "x86_64" : [
+               {
+                  "packages" : [
+                     "postgrespro-9.5.rhel.pro.yum-9.5-2.1.noarch.rpm",
+                     "postgrespro95-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.el6.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rhel/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.el6.x86_64"
+                  ],
+                  "package" : "postgrespro95-server-9.5.15.1-1.el6.x86_64.rpm",
+                  "product" : "PostgresPro Standard",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         }
+      },
+      "rosa-sx" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "packages" : [
+                     "postgrespro-9.5.rosa-sx.pro.yum-9.5-2.1.noarch.rpm",
+                     "postgrespro95-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.res6.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rosa-sx/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.res6.x86_64"
+                  ],
+                  "package" : "postgrespro95-server-9.5.15.1-1.res6.x86_64.rpm",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         }
+      },
+      "sles" : {
+         "11" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "product" : "PostgresPro Standard",
+                  "package" : "postgrespro95-server-9.5.15.1-1.0.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repo.postgrespro.ru//pgpro-9.5-beta/sles/11 pgpro-std-9.5",
+                     "zypper refresh",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh libicu-4.6.1-5.1.2.x86_64.rpm",
+                     "wget https://repo.postgrespro.ru/depends/icu/sles/11/icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "rpm -ivh icu-data-4.6.1-5.1.2.x86_64.rpm",
+                     "zypper install -fy postgrespro95-server-9.5.15.1-1.0.x86_64"
+                  ],
+                  "packages" : [
+                     "libecpg6-9.5.15.1-1.0.x86_64.rpm",
+                     "libpq5-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.0.x86_64.rpm"
+                  ]
+               }
+            ]
+         },
+         "12.1" : {
+            "x86_64" : [
+               {
+                  "package" : "postgrespro95-server-9.5.15.1-1.0.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
+                     "zypper ar http://repo.postgrespro.ru//pgpro-9.5-beta/sles/12.1 pgpro-std-9.5",
+                     "zypper refresh",
+                     "zypper install -fy postgrespro95-server-9.5.15.1-1.0.x86_64"
+                  ],
+                  "packages" : [
+                     "libecpg6-9.5.15.1-1.0.x86_64.rpm",
+                     "libpq5-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.0.noarch.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.0.noarch.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.0.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.0.x86_64.rpm"
+                  ],
+                  "product" : "PostgresPro Standard",
+                  "version" : "9.5.15.1"
+               }
+            ]
+         }
+      },
+      "rosa-el" : {
+         "6" : {
+            "x86_64" : [
+               {
+                  "product" : "PostgresPro Standard",
+                  "package" : "postgrespro95-server-9.5.15.1-1.res6.x86_64.rpm",
+                  "install" : [
+                     "rpm --import http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO",
+                     "echo [postgrespro-std] > /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo name=Postgres Pro Standard repo >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo baseurl=http://repo.postgrespro.ru//pgpro-9.5-beta/rosa-el/6Server/os/x86_64/rpms/ >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo gpgcheck=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "echo enabled=1 >> /etc/yum.repos.d/postgrespro-std.repo",
+                     "yum makecache",
+                     "yum install -y postgrespro95-server-9.5.15.1-1.res6.x86_64"
+                  ],
+                  "packages" : [
+                     "postgrespro-9.5.rosa-el.pro.yum-9.5-2.1.noarch.rpm",
+                     "postgrespro95-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-contrib-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-debuginfo-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-devel-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-docs-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-docs-ru-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-libs-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-pg_arman-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-plperl-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-plpython-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-pltcl-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-server-9.5.15.1-1.res6.x86_64.rpm",
+                     "postgrespro95-test-9.5.15.1-1.res6.x86_64.rpm"
+                  ],
+                  "version" : "9.5.15.1"
+               }
+            ]
+         }
+      },
+      "altlinux" : {
+         "8" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "product" : "PostgresPro Standard",
+                  "packages" : [
+                     "postgrespro9.5-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-static-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-debuginfo-9.5.15.1-alt1.x86_64.rpm"
+                  ],
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/8 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/8  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro9.5-server"
+                  ],
+                  "package" : "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm"
+               }
+            ]
+         },
+         "7" : {
+            "x86_64" : [
+               {
+                  "version" : "9.5.15.1",
+                  "install" : [
+                     "apt-get update -y",
+                     "apt-get install -y curl gnupg2",
+                     "curl http://repo.postgrespro.ru/keys/GPG-KEY-POSTGRESPRO | gpg --import -",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/7 x86_64 pgpro  > /etc/apt/sources.list.d/postgrespro-std.list",
+                     "echo rpm http://repo.postgrespro.ru//pgpro-9.5-beta/altlinux/7  noarch pgpro  >> /etc/apt/sources.list.d/postgrespro-std.list",
+                     "apt-get update -y",
+                     "apt-get install -y postgrespro9.5-server"
+                  ],
+                  "packages" : [
+                     "postgrespro9.5-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-contrib-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-devel-static-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-perl-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-pg_arman-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-python-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-server-debuginfo-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-9.5.15.1-alt1.x86_64.rpm",
+                     "postgrespro9.5-tcl-debuginfo-9.5.15.1-alt1.x86_64.rpm"
+                  ],
+                  "package" : "postgrespro9.5-server-9.5.15.1-alt1.x86_64.rpm",
+                  "product" : "PostgresPro Standard"
+               }
+            ]
+         }
+      }
+   },
+   "windows" : {
+      "msvc2013" : {
+         "x86_64" : [
+            {
+               "package" : "PostgresPro_9.5.15.1_64bit_Setup.exe",
+               "install" : "http://repo.postgrespro.ru//pgpro-9.5-beta/win/PostgresPro_9.5.15.1_64bit_Setup.exe",
+               "packages" : [
+                  "PostgresPro_9.5.15.1_64bit_Setup.exe"
+               ],
+               "product" : "PostgresPro Standard",
+               "version" : "9.5.15.1"
+            }
+         ],
+         "x86" : []
+      },
+      "sdk71" : {
+         "x86_64" : [
+            {
+               "install" : "http://repo.postgrespro.ru//pgpro-9.5-beta/win/sdk71/PostgresPro_9.5.15.1_64bit_Setup.exe",
+               "packages" : [
+                  "PostgresPro_9.5.15.1_64bit_Setup.exe"
+               ],
+               "package" : "PostgresPro_9.5.15.1_64bit_Setup.exe",
+               "product" : "PostgresPro Standard",
+               "version" : "9.5.15.1"
+            }
+         ],
+         "x86" : []
       }
    }
 }
