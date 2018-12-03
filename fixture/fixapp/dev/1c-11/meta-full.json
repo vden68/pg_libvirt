@@ -557,7 +557,7 @@
                      "rpm --import http://repo.postgrespro.ru/keys/SUSE-GPG-KEY-POSTGRESPRO",
                      "zypper ar http://localrepo.l.postgrespro.ru/dev/1c-11/sles/12.1 pgpro-1c-11",
                      "zypper refresh",
-                     "zypper install -fy postgrespro*.*",
+                     "zypper install -fy postgrespro*",
                      "/opt/pgpro/1c-11/bin/pg-setup initdb",
                      "service postgrespro-1c-11 start"
                   ],
