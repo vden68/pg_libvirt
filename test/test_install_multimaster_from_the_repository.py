@@ -11,7 +11,7 @@ def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
 
 
 
-    """
+
     with pytest.allure.step('Clone an image %s ' % app.pgl_kvm.name_source_image):
         clone_name = app.img.clone_an_image(image=app.pgl_kvm.name_source_image, clone_name=None)
 
@@ -33,9 +33,9 @@ def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
 
 
 
-    """
 
-    clone_name_new = "m-quick--linux--centos--7--x86_64--m--11--1214--0"
+
+    #clone_name_new = "m-quick--linux--centos--7--x86_64--m--11--1214--0"
     time.sleep(10)
 
 
