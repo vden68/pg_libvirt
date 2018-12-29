@@ -71,6 +71,9 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo sed -i "$ a listen_addresses = \'*\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
+            ssh_command_str = 'sudo sed -i "$ a wal_sender_timeout = 0 "  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
             ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'multimaster\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 

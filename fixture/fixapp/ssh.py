@@ -67,7 +67,7 @@ class Ssh_helper:
 
                         print('\nstep=', step2)
                         self.step_sudo(step2)
-                        break
+                        #break
                     self.step_sudo(step)
 
 
