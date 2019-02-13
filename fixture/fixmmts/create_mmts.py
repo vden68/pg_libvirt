@@ -49,10 +49,16 @@ class Create_mmts_helper:
             ssh_command_str="sudo chmod  777 /var/lib/pgpro/ent-11/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str="sudo sed -i '$ a host     all        all        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
+            ssh_command_str=\
+                "sudo sed -i '$ a host     all        all        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str="sudo sed -i '$ a host     replication        repl        0.0.0.0\/0       trust' /var/lib/pgpro/ent-11/data/pg_hba.conf"
+            ssh_command_str=\
+                "sudo sed -i '$ a host     replication        mtmuser        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = \
+                "sudo sed -i '$ a host     mydb        mtmuser        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             # tuning pg_hba.conf
@@ -62,10 +68,13 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo  sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
+            ssh_command_str = 'sudo  sed -i "$ a max_connections = 100"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
             ssh_command_str = 'sudo sed -i "$ a max_prepared_transactions = 600"  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo sed -i "$ a max_worker_processes = 500"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_command_str = 'sudo sed -i "$ a max_worker_processes = 300"  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo sed -i "$ a listen_addresses = \'*\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
@@ -74,20 +83,20 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo sed -i "$ a wal_sender_timeout = 0 "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'multimaster\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'multimaster, pg_stat_statements, pg_pathman\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = ('sudo sed -i "$ a multimaster.max_nodes = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
-                               (self.mmts.conn_mmts.max_nodes))
-            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
-
-            ssh_command_str = ('sudo sed -i "$ a multimaster.node_id = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
-                               (xm.node_id))
-            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
-
-            ssh_command_str = ('sudo sed -i "$ a multimaster.conn_strings = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
-                               (self.mmts.conn_mmts.conn_strings))
-            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            # ssh_command_str = ('sudo sed -i "$ a multimaster.max_nodes = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
+            #                    (self.mmts.conn_mmts.max_nodes))
+            # ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            #
+            # ssh_command_str = ('sudo sed -i "$ a multimaster.node_id = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
+            #                    (xm.node_id))
+            # ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            #
+            # ssh_command_str = ('sudo sed -i "$ a multimaster.conn_strings = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
+            #                    (self.mmts.conn_mmts.conn_strings))
+            # ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
 
 
