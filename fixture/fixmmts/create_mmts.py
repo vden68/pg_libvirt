@@ -26,11 +26,11 @@ class Create_mmts_helper:
             st_image = app.img.start_image(name_image=new_image)
             self.mmts.mmts_data[x].images_ip=st_image.IP
             self.mmts.mmts_data[x].host = st_image.IP
-            self.mmts.conn_mmts.conn_strings=self.mmts.conn_mmts.conn_strings+' dbname='+self.mmts.conn_mmts.dbname+\
-                  " user="+self.mmts.conn_mmts.user+" host="+st_image.IP+" password="+self.mmts.conn_mmts.password+","
+            # self.mmts.conn_mmts.conn_strings=self.mmts.conn_mmts.conn_strings+' dbname='+self.mmts.conn_mmts.dbname+\
+            #       " user="+self.mmts.conn_mmts.user+" host="+st_image.IP+" password="+self.mmts.conn_mmts.password+","
 
-
-
+            self.mmts.conn_mmts.conn_strings = self.mmts.conn_mmts.conn_strings + ' dbname=' + self.mmts.conn_mmts.dbname + \
+                                               " user=" + self.mmts.conn_mmts.user + " host=" + st_image.IP + " password=" + self.mmts.conn_mmts.password + ","
 
             x=x+1
 
@@ -86,6 +86,12 @@ class Create_mmts_helper:
             ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'multimaster, pg_stat_statements, pg_pathman\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
+            ssh_command_str = 'sudo sed -i "$ a max_wal_senders = 10 "  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a max_replication_slots = 20 "  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
             # ssh_command_str = ('sudo sed -i "$ a multimaster.max_nodes = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
             #                    (self.mmts.conn_mmts.max_nodes))
             # ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
@@ -100,7 +106,8 @@ class Create_mmts_helper:
 
 
 
-            ssh_command_str = 'sudo -H -u postgres psql -c "CREATE USER myuser WITH SUPERUSER ENCRYPTED PASSWORD \'myuserpassword\';"'
+            ssh_command_str = \
+                'sudo -H -u postgres psql -c "CREATE USER mtmuser WITH SUPERUSER ENCRYPTED PASSWORD \'mtmuserpassword\';"'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             print('xm.node_id=', xm.node_id)
@@ -113,7 +120,7 @@ class Create_mmts_helper:
                 ssh_command_str = 'sudo -H -u postgres psql -c "CREATE TABLESPACE cfs location \'/var/lib/pgpro/ent-11/cfs\' with (compression=true);"'
                 ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER myuser TABLESPACE cfs;"'
+                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER mtmuser TABLESPACE cfs;"'
                 ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
                 ssh_command_str = 'sudo -H -u postgres psql -d mydb -c "set default_tablespace=cfs;"'
@@ -121,7 +128,7 @@ class Create_mmts_helper:
             else:
                 print('False.xm.node_id=', xm.node_id)
 
-                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER myuser;"'
+                ssh_command_str = 'sudo -H -u postgres psql -c "CREATE DATABASE mydb OWNER mtmuser;"'
                 ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo pg-setup service stop'
