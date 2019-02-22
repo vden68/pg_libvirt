@@ -6,7 +6,7 @@ from model.pgl_ssh import Pgl_ssh
 from fixture.fixssh.ssh import Sshh_helper
 import time
 
-class Create_mmts_helper:
+class Create_shardman_helper:
 
     def __init__(self, mmts):
         self.img = Image_helper(self)
@@ -53,9 +53,9 @@ class Create_mmts_helper:
                 "sudo sed -i '$ a host     all        all        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str=\
-                "sudo sed -i '$ a host     replication        mtmuser        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
-            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            #ssh_command_str=\
+            #     "sudo sed -i '$ a host     replication        mtmuser        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
+            # ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = \
                 "sudo sed -i '$ a host     mydb        mtmuser        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
@@ -142,9 +142,9 @@ class Create_mmts_helper:
         time.sleep(20)
 
 
-        conn_ssh_str = Pgl_ssh(ip=self.mmts.mmts_data[0].images_ip, username="test", password="TestPass1")
-        ssh_command_str = 'sudo -H -u postgres psql -d mydb -c "CREATE EXTENSION multimaster;" '
-        ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+        # conn_ssh_str = Pgl_ssh(ip=self.mmts.mmts_data[0].images_ip, username="test", password="TestPass1")
+        # ssh_command_str = 'sudo -H -u postgres psql -d mydb -c "CREATE EXTENSION multimaster;" '
+        # ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
 
         time.sleep(30)

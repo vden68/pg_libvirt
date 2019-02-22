@@ -41,10 +41,10 @@ def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
 
 
     with pytest.allure.step('Clone an image %s ' % clone_name_new):
-        mmts.create.clone_mmts_image(image=clone_name_new, app=app)
+        mmts.shardman.clone_shardman_image(image=clone_name_new, app=app)
 
     with pytest.allure.step('Tuning mmts '):
-        mmts.create.tuning_mmts(ssh_trans=ssh_trans)
+        mmts.create.tuning_shardman(ssh_trans=ssh_trans)
 
 
 
