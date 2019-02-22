@@ -65,8 +65,29 @@ class Create_shardman_helper:
             ssh_command_str = "sudo  chmod  777 /var/lib/pgpro/ent-11/data/postgresql.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo  sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            if xm.node_id == '1':
+                ssh_command_str = 'sudo  sed -i "$ a shardman.shardlord = on"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+                ssh_command_str = 'sudo  sed -i "$ a shardman.sync_replication = on"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'postgres_fdw, pg_shardman, pg_pathman\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = \
+                ('sudo sed -i "$ a shardman.shardlord_connstring = dbname=mydb user=mtmuser password=mtmuserpassword host=%s "  /var/lib/pgpro/ent-11/data/postgresql.conf')%(self.mmts.mmts_data[0].host)
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            if xm.node_id != '1':
+                ssh_command_str = 'sudo  sed -i "$ a shardman.shardlord = off"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+                ssh_command_str = 'sudo  sed -i "$ a wal_level = logical"  /var/lib/pgpro/ent-11/data/postgresql.conf'
+                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            # ssss
+
 
             ssh_command_str = 'sudo  sed -i "$ a max_connections = 100"  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
@@ -83,8 +104,7 @@ class Create_shardman_helper:
             ssh_command_str = 'sudo sed -i "$ a wal_sender_timeout = 0 "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            ssh_command_str = 'sudo sed -i "$ a shared_preload_libraries = \'multimaster, pg_stat_statements, pg_pathman\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
-            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
 
             ssh_command_str = 'sudo sed -i "$ a max_wal_senders = 10 "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
