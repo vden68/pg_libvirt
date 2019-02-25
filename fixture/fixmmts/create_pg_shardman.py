@@ -76,7 +76,7 @@ class Create_shardman_helper:
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = \
-                ('sudo sed -i "$ a shardman.shardlord_connstring = dbname=mydb user=mtmuser password=mtmuserpassword host=%s "  /var/lib/pgpro/ent-10/data/postgresql.conf')%(self.mmts.mmts_data[0].host)
+                ('sudo sed -i "$ a shardman.shardlord_connstring = \'dbname=mydb user=mtmuser password=mtmuserpassword host=%s \'"  /var/lib/pgpro/ent-10/data/postgresql.conf')%(self.mmts.mmts_data[0].host)
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo sed -i "$ a listen_addresses = \'*\' "  /var/lib/pgpro/ent-10/data/postgresql.conf'
