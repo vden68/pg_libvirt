@@ -178,11 +178,11 @@ class Create_shardman_helper:
         conn_ssh_str = Pgl_ssh(ip=self.mmts.mmts_data[0].images_ip, username="test", password="TestPass1")
         for xm in self.mmts.mmts_data:
 
-            if xm.node_id==1:
+            if xm.node_id=='1':
                 continue
-            else:
-                ssh_command_str = ('sudo -H -u postgres psql -d mydb -c "SELECT shardman.add_node(\'dbname=mydb user=mtmuser password=mtmuserpassword host={node_ip}\', \'dbname=mydb user=mtmuser password=mtmuserpassword host={node_ip}\', \'1\') ;"').format(node_ip=xm.images_ip)
-                ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = ('sudo -H -u postgres psql -d mydb -c "SELECT shardman.add_node(\'dbname=mydb user=mtmuser password=mtmuserpassword host={node_ip}\', \'dbname=mydb user=mtmuser password=mtmuserpassword host={node_ip}\', \'1\') ;"').format(node_ip=xm.images_ip)
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
 
 
