@@ -138,7 +138,7 @@ class Lib_helper:
                 ifaces = None
 
             pg_time= pg_time+1
-            time.sleep(1)
+            time.sleep(2)
             if pg_time>800:
                 print('Failed not received IP address ')
                 exit(1)
