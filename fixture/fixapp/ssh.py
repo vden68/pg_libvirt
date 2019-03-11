@@ -55,6 +55,7 @@ class Ssh_helper:
             #     print("For ubuntu---")
 
 
+            time.sleep(30)
             with pytest.allure.step('Выполняем install из meta.json' ):
                 for step in steps:
                     print('\nstep=', step)
