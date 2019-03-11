@@ -30,7 +30,7 @@ class Sshh_helper:
                 ifaces = None
 
             pg_time = pg_time + 1
-            time.sleep(1)
+            time.sleep(2)
             if pg_time > 200:
                 print('Failed not received SSH connect ')
                 exit(1)
@@ -42,20 +42,20 @@ class Sshh_helper:
 
         list_exec=[]
 
-        with pytest.allure.step('Выполняем команду %s' %command):
-            stdin, stdout, stderr = self.client.exec_command(command, timeout=2400)
-            time.sleep(10)
-            for line in stdout.read().decode('utf8').splitlines():
+        #with pytest.allure.step('Выполняем команду %s' %command):
+        stdin, stdout, stderr = self.client.exec_command(command, timeout=2400)
+        time.sleep(10)
+        for line in stdout.read().decode('utf8').splitlines():
 
-                print('... %s:' % (line))
+            print('... %s:' % (line))
 
-                #if stderr:
-                for line_stderr in stderr.read().decode('utf8').splitlines():
-                    if line_stderr:
-                        print('er..%s:' % (line_stderr))
-                        list_exec.append(line_stderr)
+            #if stderr:
+            for line_stderr in stderr.read().decode('utf8').splitlines():
+                if line_stderr:
+                    print('er..%s:' % (line_stderr))
+                    list_exec.append(line_stderr)
 
-                list_exec.append(line)
+            list_exec.append(line)
 
 
             """
