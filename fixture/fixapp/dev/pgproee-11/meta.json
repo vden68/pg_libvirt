@@ -14,9 +14,9 @@
                      "echo enabled=1 >> /etc/yum.repos.d/postgrespro-ent.repo",
                      "yum makecache",
                      "yum install -y postgrespro-ent-11-server-11.0.1-1.el7.x86_64",
-                     "yum install -y postgrespro-ent-11-debuginfo-11.1.1-1.el7.x86_64",
-                     "yum install -y zstd-debuginfo-1.1.0-1.el7.centos.x86_64",
-                     "yum install -y postgrespro-ent-11-devel-11.1.1-1.el7.x86_64",
+                     "yum install -y postgrespro-ent-11-debuginfo*.*",
+                     "yum install -y zstd-debuginfo*.*",
+                     "yum install -y postgrespro-ent-11-devel*.*",
                      "/opt/pgpro/ent-11/bin/pg-setup initdb",
                      "service postgrespro-ent-11 start"
                   ],
