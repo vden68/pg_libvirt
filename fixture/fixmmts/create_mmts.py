@@ -45,6 +45,22 @@ class Create_mmts_helper:
 
             conn_ssh_str = Pgl_ssh(ip=xm.images_ip, username="test", password="TestPass1")
 
+            # initdb
+            ssh_command_str = "sudo rm -rf   /var/lib/pgpro/ent-11/data"
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo pg-setup initdb'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            time.sleep(10)
+
+            ssh_command_str = 'sudo pg-setup service stop'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            time.sleep(10)
+
+            ssh_command_str = 'sudo pg-setup service start'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+            time.sleep(20)
+
             # tuning pg_hba.conf
             ssh_command_str="sudo chmod  777 /var/lib/pgpro/ent-11/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
