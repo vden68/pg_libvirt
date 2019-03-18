@@ -36,7 +36,7 @@ def test_install_multimaster_from_the_repository(app, mmts, ssh_trans):
 
 
 
-    clone_name_new = "m--linux--centos--7--x86_64--m--11--0315--1"
+    clone_name_new = "m--linux--centos--7--x86_64--m--11--0315--2"
     time.sleep(10)
 
 
