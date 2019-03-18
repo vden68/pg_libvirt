@@ -78,6 +78,7 @@ class Create_mmts_helper:
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             # tuning pg_hba.conf
+            time.sleep(20)
             ssh_command_str = "sudo  chmod  777 /var/lib/pgpro/ent-11/data/postgresql.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
