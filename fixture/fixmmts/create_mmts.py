@@ -77,7 +77,7 @@ class Create_mmts_helper:
                 "sudo sed -i '$ a host     mydb        mtmuser        0.0.0.0\/0       md5' /var/lib/pgpro/ent-11/data/pg_hba.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
-            # tuning pg_hba.conf
+            # tuning postgresql.conf
             ssh_command_str = "sudo  chmod  777 /var/lib/pgpro/ent-11/data/postgresql.conf"
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
@@ -112,6 +112,12 @@ class Create_mmts_helper:
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             ssh_command_str = 'sudo sed -i "$ a multimaster.heartbeat_recv_timeout = 5000ms "  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a archive_mode = on "  /var/lib/pgpro/ent-11/data/postgresql.conf'
+            ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
+
+            ssh_command_str = 'sudo sed -i "$ a archive_command = \'\/bin\/false\' "  /var/lib/pgpro/ent-11/data/postgresql.conf'
             ssh_trans.ssh_trans_exec_command(conn_ssh_str=conn_ssh_str, ssh_command=ssh_command_str)
 
             # ssh_command_str = ('sudo sed -i "$ a multimaster.max_nodes = %s "  /var/lib/pgpro/ent-11/data/postgresql.conf' %
